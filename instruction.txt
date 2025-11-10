@@ -1,0 +1,35 @@
+**General Principles**
+
+- Apply **SOLID**, **DRY**, and **KISS** principles consistently throughout the codebase.
+- Follow **frontend architecture best practices** for scalability, readability, and maintainability.
+- Ensure all code is **production-ready** and adheres to **enterprise-level standards**.
+
+**Code Quality**
+
+- Write **efficient, clean, and modular** code.
+- Maintain **high readability** — variable, function, and component names must clearly express intent.
+- Avoid redundant logic — **reuse existing components** instead of duplicating code.
+- **No comments** should be used; code should be self-explanatory.
+- **No Markdown (.md) files** or placeholder documentation should be generated.
+- **No icons** or decorative assets unless explicitly required.
+
+**Architecture & Structure**
+
+- Use a **component-based folder structure**, keeping related logic and styling encapsulated.
+- Ensure **SEO-friendly structure** — semantic HTML, optimized metadata, and accessibility compliance.
+- Maintain **consistent coding conventions** (naming, indentation, imports, file naming).
+- Ensure modularity for scalability and easy testing.
+
+**Performance**
+
+- Prioritize **performance and optimization** in rendering, state management, and API handling.
+- Reduce unnecessary re-renders and bundle size.
+
+### **Responsive Design**
+
+- Follow a **mobile-first** design approach with fluid layouts.
+- Ensure **cross-device and cross-browser compatibility** (desktop, tablet, mobile).
+- Use **relative units (%, rem, vw/vh)** for flexible scaling.
+- Test and adjust **breakpoints** for all major screen sizes.
+- Maintain **consistent spacing, typography, and layout behavior** across resolutions.
+- Ensure interactive elements (buttons, inputs, navigation) are **touch-friendly and accessible**.
