@@ -37,7 +37,7 @@ export default function Navigation() {
               : "bg-black/40 backdrop-blur-sm border border-gray-800"
           }`}
         >
-          <div className="flex items-center justify-between gap-10 px-6 h-16 ">
+          <div className="flex items-center justify-between gap-10 px-6 h-16 sm:w-full">
             <Link
               href="/"
               className="text-xl font-bold text-white whitespace-nowrap mx-0"
