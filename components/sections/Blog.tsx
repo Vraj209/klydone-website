@@ -25,29 +25,30 @@ export default function Blog() {
   ];
   
   return (
-    <Section id="blog" background="gray">
+    <Section id="blog" background="dark">
       <SectionHeader 
         title="Insights & Resources"
         subtitle="Our blog covers technology, architecture, best practices, case studies and trends to help you stay ahead."
+        badge="Best knowledge posts for you"
       />
       
       <div className="grid md:grid-cols-3 gap-8 mb-8">
         {posts.map((post, index) => (
           <article 
             key={index} 
-            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600"></div>
+            <div className="h-48 bg-violet-600"></div>
             <div className="p-6">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold">
+                <span className="px-3 py-1 bg-violet-600/30 text-white rounded-full text-xs font-semibold">
                   {post.category}
                 </span>
                 <span className="text-sm text-gray-500">{post.date}</span>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">{post.title}</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">{post.summary}</p>
-              <button className="text-blue-600 font-semibold hover:underline">
+              <h3 className="text-xl font-bold mb-3 text-white">{post.title}</h3>
+              <p className="text-white leading-relaxed mb-4">{post.summary}</p>
+              <button className="text-violet-600 font-semibold hover:underline">
                 Read More →
               </button>
             </div>

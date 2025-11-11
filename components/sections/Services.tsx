@@ -43,23 +43,24 @@ export default function Services() {
   return (
     <Section id="services" background="dark">
       <SectionHeader 
-        title="Our Services"
+        title="What we offer"
         subtitle="Comprehensive technology solutions for your business"
+        badge="Core services we offer"
       />
       
       <div className="grid md:grid-cols-2 gap-8">
         {services.map((service, index) => (
           <div 
             key={index} 
-            className="bg-gray-800 rounded-2xl p-8 hover:bg-gray-750 transition-all duration-300 border border-gray-700 hover:border-blue-500"
+            className="bg-gray-800 rounded-2xl p-8 hover:bg-gray-750 transition-all duration-300 border border-gray-700 hover:border-violet-600"
           >
             <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+            <p className="text-white mb-6 leading-relaxed">{service.description}</p>
             <div className="flex flex-wrap gap-2">
               {service.tags.map((tag, tagIndex) => (
                 <span 
                   key={tagIndex} 
-                  className="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-sm"
+                  className="px-3 py-1 bg-violet-600/30 text-white rounded-full text-sm"
                 >
                   {tag}
                 </span>

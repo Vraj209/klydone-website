@@ -46,11 +46,11 @@ export default function Footer() {
   ];
   
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-black text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <Link href="/" className="text-3xl font-bold text-violet-600 bg-clip-text">
               Klydone
             </Link>
             <p className="mt-4 text-gray-400 leading-relaxed">
@@ -58,10 +58,10 @@ export default function Footer() {
             </p>
             <div className="mt-6">
               <p className="text-sm text-gray-400 mb-2">Contact:</p>
-              <a href="mailto:hello@klydone.com" className="text-blue-400 hover:underline block mb-1">
+              <a href="mailto:hello@klydone.com" className="text-white hover:underline block mb-1">
                 hello@klydone.com
               </a>
-              <a href="tel:+15551234567" className="text-blue-400 hover:underline block">
+              <a href="tel:+15551234567" className="text-white hover:underline block">
                 +1 (555) 123-4567
               </a>
             </div>

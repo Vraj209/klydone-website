@@ -1,6 +1,5 @@
 import Section from "../ui/Section";
 import SectionHeader from "../ui/SectionHeader";
-import Card from "../ui/Card";
 import Button from "../ui/Button";
 
 export default function AIServices() {
@@ -77,13 +76,10 @@ export default function AIServices() {
 
   return (
     <Section id="ai-services" background="dark">
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl"></div>
-
-        <div className="relative">
+      
           <SectionHeader
-            badge="AI-Powered Solutions"
-            title="Transform Your Business with Artificial Intelligence"
+            badge="AI services we offer"
+            title="Transform your business with Artificial Intelligence"
             subtitle="Harness the power of AI to automate processes, gain deeper insights, and unlock new possibilities for growth and innovation."
           />
 
@@ -91,7 +87,7 @@ export default function AIServices() {
             {aiServices.map((service, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-2xl p-8 hover:bg-gray-750 transition-all duration-300 border border-gray-700 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
+                className="bg-gray-800 rounded-2xl p-8 hover:bg-gray-750 transition-all duration-300 border border-gray-700 hover:border-violet-600 hover:shadow-2xl hover:shadow-violet-600/20"
               >
                 <div className="text-6xl mb-4">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-3 text-white">
@@ -104,7 +100,7 @@ export default function AIServices() {
                   {service.features.map((feature, featureIndex) => (
                     <span
                       key={featureIndex}
-                      className="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-violet-600/30 text-white rounded-full text-sm font-medium"
                     >
                       {feature}
                     </span>
@@ -114,7 +110,7 @@ export default function AIServices() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-12 border border-gray-700 mb-16">
+          <div className="bg-gray-800 rounded-3xl p-12 border border-gray-700 mb-16">
             <h3 className="text-3xl font-bold text-white mb-8 text-center">
               AI in Action: Real-World Applications
             </h3>
@@ -126,7 +122,7 @@ export default function AIServices() {
                   className="bg-gray-900 rounded-xl p-6 border border-gray-700"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-violet-500"></div>
                     <h4 className="text-xl font-bold text-white">
                       {useCase.industry}
                     </h4>
@@ -134,7 +130,7 @@ export default function AIServices() {
                   <p className="text-gray-300 mb-3">{useCase.application}</p>
                   <div className="flex items-center gap-2">
                     <svg
-                      className="w-5 h-5 text-green-400"
+                      className="w-5 h-5 text-violet-500"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -144,7 +140,7 @@ export default function AIServices() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-green-400 font-semibold text-sm">
+                    <span className="text-violet-500 font-semibold text-sm">
                       {useCase.impact}
                     </span>
                   </div>
@@ -153,11 +149,11 @@ export default function AIServices() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center">
+          <div className="bg-violet-600 rounded-3xl p-12 text-center">
             <h3 className="text-4xl font-bold text-white mb-4">
               Ready to Unlock AI Potential?
             </h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
               From proof-of-concept to enterprise deployment, we deliver AI
               solutions that drive measurable business value.
             </p>
@@ -165,13 +161,8 @@ export default function AIServices() {
               <Button href="#contact" variant="secondary" size="lg">
                 Schedule AI Consultation
               </Button>
-              <Button href="#case-studies" variant="outline" size="lg">
-                View AI Case Studies
-              </Button>
-            </div>
           </div>
         </div>
-      </div>
     </Section>
   );
 }

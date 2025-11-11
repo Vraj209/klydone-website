@@ -20,7 +20,7 @@ export default function Card({
   };
   
   return (
-    <div className={`bg-white rounded-2xl shadow-lg ${paddings[padding]} transition-all duration-300 ${hoverClass} ${className}`}>
+    <div className={`bg-gray-800 rounded-2xl shadow-lg ${paddings[padding]} transition-all duration-300 ${hoverClass} ${className}`}>
       {children}
     </div>
   );

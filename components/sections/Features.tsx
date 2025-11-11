@@ -37,18 +37,19 @@ export default function Features() {
   ];
   
   return (
-    <Section id="features" background="gray">
+    <Section id="features" background="dark">
       <SectionHeader 
-        title="What We Offer"
-        subtitle="Comprehensive solutions for modern software development"
+        title="What we provide"
+        subtitle="We offer a wide range of services to help you build your next-gen application"
+        badge="Features we offer"
       />
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => (
           <Card key={index}>
             <div className="text-5xl mb-4">{feature.icon}</div>
-            <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
-            <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+            <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+            <p className="text-white leading-relaxed">{feature.description}</p>
           </Card>
         ))}
       </div>

@@ -31,34 +31,35 @@ export default function Changelog() {
   ];
   
   const typeColors = {
-    'New Feature': 'bg-green-100 text-green-700',
-    'Infrastructure': 'bg-blue-100 text-blue-700',
-    'Platform': 'bg-purple-100 text-purple-700',
-    'Process': 'bg-orange-100 text-orange-700'
+    'New Feature': 'bg-violet-600 text-white',
+    'Infrastructure': 'bg-violet-600 text-white',
+    'Platform': 'bg-violet-600 text-white',
+    'Process': 'bg-violet-600 text-white'
   };
   
   return (
-    <Section id="changelog" background="gray">
+    <Section id="changelog" background="dark">
       <SectionHeader 
         title="Product Updates & Improvements"
         subtitle="We continuously improve our offerings, deliver new features, optimise performance and strengthen security."
+        badge="We are always improving our services"
       />
       
       <div className="max-w-4xl mx-auto">
-        <div className="relative border-l-2 border-blue-200 pl-8 space-y-8">
+        <div className="relative border-l-2 border-violet-200 pl-8 space-y-8">
           {updates.map((update, index) => (
             <div key={index} className="relative">
-              <div className="absolute -left-10 top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
+              <div className="absolute -left-10 top-0 w-4 h-4 rounded-full bg-violet-600 border-4 border-white"></div>
               
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="text-sm font-semibold text-gray-500">{update.date}</span>
+                  <span className="text-sm font-semibold text-white">{update.date}</span>
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${typeColors[update.type as keyof typeof typeColors]}`}>
                     {update.type}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{update.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{update.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-white">{update.title}</h3>
+                <p className="text-white leading-relaxed">{update.description}</p>
               </div>
             </div>
           ))}

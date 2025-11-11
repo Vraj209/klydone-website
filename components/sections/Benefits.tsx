@@ -37,18 +37,19 @@ export default function Benefits() {
   ];
   
   return (
-    <Section id="benefits" background="white">
+    <Section id="benefits" background="dark">
       <SectionHeader 
-        title="Why Choose Us"
+        title="Why work with us?"
         subtitle="The competitive advantages that set us apart"
+        badge="Benefits of working with us"
       />
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {benefits.map((benefit, index) => (
           <Card key={index} padding="lg">
             <div className="text-4xl mb-4">{benefit.icon}</div>
-            <h3 className="text-xl font-bold mb-3 text-gray-900">{benefit.title}</h3>
-            <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+            <h3 className="text-xl font-bold mb-3 text-white">{benefit.title}</h3>
+            <p className="text-white leading-relaxed">{benefit.description}</p>
           </Card>
         ))}
       </div>

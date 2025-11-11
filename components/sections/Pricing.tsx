@@ -55,10 +55,11 @@ export default function Pricing() {
   ];
   
   return (
-    <Section id="pricing" background="white">
+    <Section id="pricing" background="dark">
       <SectionHeader 
-        title="Pricing & Engagement Models"
+        title="Pricing and engagement models"
         subtitle="We offer flexible engagement models to suit your needs, whether you're building a full product or adding features to an existing platform."
+        badge="Best pricing and engagement models in the market"
       />
       
       <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -67,25 +68,25 @@ export default function Pricing() {
             key={index} 
             className={`rounded-3xl p-8 ${
               plan.popular 
-                ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-2xl scale-105' 
-                : 'bg-white shadow-lg border border-gray-200'
+                ? 'bg-violet-600 text-white shadow-2xl scale-110' 
+                : 'bg-gray-800 shadow-lg border border-gray-200'
             } transition-all duration-300 hover:shadow-2xl`}
           >
             {plan.popular && (
               <div className="mb-4">
-                <span className="px-4 py-1 bg-white/20 rounded-full text-sm font-semibold">
-                  Most Popular
+                <span className="px-4 py-1 bg-white text-violet-600 rounded-full text-sm font-medium border border-gray-200">
+                  Popular choice for many clients
                 </span>
               </div>
             )}
             
-            <h3 className={`text-3xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+            <h3 className={`text-3xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-white'}`}>
               {plan.name}
             </h3>
-            <p className={`text-lg font-semibold mb-2 ${plan.popular ? 'text-blue-100' : 'text-blue-600'}`}>
+            <p className={`text-lg font-medium mb-2 ${plan.popular ? 'text-white' : 'text-violet-600'}`}>
               {plan.subtitle}
             </p>
-            <p className={`mb-6 ${plan.popular ? 'text-blue-100' : 'text-gray-600'}`}>
+            <p className={`mb-6 ${plan.popular ? 'text-white' : 'text-white'}`}>
               {plan.description}
             </p>
             
@@ -93,15 +94,15 @@ export default function Pricing() {
               {plan.features.map((feature, featureIndex) => (
                 <li key={featureIndex} className="flex items-start gap-2">
                   <svg 
-                    className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                      plan.popular ? 'text-white' : 'text-green-500'
+                    className={`w-5 h-5 mt-0.5 ${
+                      plan.popular ? 'text-white' : 'text-gray-300'
                     }`} 
                     fill="currentColor" 
                     viewBox="0 0 20 20"
                   >
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className={plan.popular ? 'text-white' : 'text-gray-700'}>{feature}</span>
+                  <span className={plan.popular ? 'text-white' : 'text-gray-300'}>{feature}</span>
                 </li>
               ))}
             </ul>
@@ -117,8 +118,8 @@ export default function Pricing() {
         ))}
       </div>
       
-      <p className="text-center text-gray-600 text-sm">
-        Custom quotes provided after understanding your specific requirements.
+      <p className="text-center text-white text-sm py-4">
+        Custom quotes provided after understanding your specific requirements
       </p>
     </Section>
   );

@@ -31,25 +31,26 @@ export default function FAQ() {
   ];
   
   return (
-    <Section id="faq" background="gray">
+    <Section id="faq" background="dark">
       <SectionHeader 
         title="Frequently Asked Questions"
         subtitle="Everything you need to know about working with us"
+        badge="Best answers to your questions"
       />
       
       <div className="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div 
             key={index} 
-            className="bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg"
+            className="bg-gray-800 rounded-2xl shadow-md overflow-hidden transition-all duration-300"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full px-8 py-6 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+              className="w-full px-8 py-6 text-left flex items-center justify-between gap-4 transition-colors"
             >
-              <span className="font-semibold text-lg text-gray-900">{faq.question}</span>
+              <span className="text-lg text-white font-bold">{faq.question}</span>
               <svg 
-                className={`w-6 h-6 text-blue-600 flex-shrink-0 transition-transform duration-300 ${
+                className={`w-6 h-6 text-white transition-transform duration-300 ${
                   openIndex === index ? 'rotate-180' : ''
                 }`}
                 fill="none" 
@@ -66,7 +67,7 @@ export default function FAQ() {
               } overflow-hidden`}
             >
               <div className="px-8 pb-6">
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="text-white leading-relaxed">{faq.answer}</p>
               </div>
             </div>
           </div>
