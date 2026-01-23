@@ -1,49 +1,10 @@
 import Link from 'next/link';
+import { Icon } from '../icons';
+import { DataService } from '../../data';
 
 export default function Footer() {
-  const navigationLinks = [
-    {
-      title: 'Company',
-      links: [
-        { name: 'About', href: '#about' },
-        { name: 'Services', href: '#services' },
-        { name: 'Blog', href: '#blog' },
-        { name: 'Contact', href: '#contact' }
-      ]
-    },
-    {
-      title: 'Services',
-      links: [
-        { name: 'Backend Development', href: '#services' },
-        { name: 'Frontend Development', href: '#services' },
-        { name: 'Cloud Architecture', href: '#services' },
-        { name: 'AI Solutions', href: '#services' }
-      ]
-    },
-    {
-      title: 'Resources',
-      links: [
-        { name: 'Case Studies', href: '#case-studies' },
-        { name: 'Pricing', href: '#pricing' },
-        { name: 'FAQ', href: '#faq' },
-        { name: 'Security', href: '#security' }
-      ]
-    },
-    {
-      title: 'Legal',
-      links: [
-        { name: 'Privacy Policy', href: '/privacy' },
-        { name: 'Terms of Service', href: '/terms' },
-        { name: 'Cookie Policy', href: '/cookies' }
-      ]
-    }
-  ];
-  
-  const socialLinks = [
-    { name: 'LinkedIn', href: 'https://linkedin.com', icon: '💼' },
-    { name: 'Twitter', href: 'https://twitter.com', icon: '🐦' },
-    { name: 'GitHub', href: 'https://github.com', icon: '💻' }
-  ];
+  const navigationLinks = DataService.getNavigationSections();
+  const socialLinks = DataService.getSocialLinks();
   
   return (
     <footer className="bg-black text-white">
@@ -99,10 +60,10 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-2xl"
+                  className="text-gray-400 hover:text-white transition-colors"
                   aria-label={social.name}
                 >
-                  {social.icon}
+                  <Icon name={social.icon} size={24} />
                 </a>
               ))}
             </div>

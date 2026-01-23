@@ -10,6 +10,8 @@
 !.yarn/releases
 !.yarn/versions
 
+/Instruction
+/docs
 # testing
 /coverage
 

@@ -1,18 +1,11 @@
 import Section from '../ui/Section';
 import SectionHeader from '../ui/SectionHeader';
 import Button from '../ui/Button';
+import { Icon } from '../icons';
+import { DataService } from '../../data';
 
 export default function Integration() {
-  const integrations = [
-    { name: 'Stripe', icon: '💳', category: 'Payments' },
-    { name: 'Plaid', icon: '🏦', category: 'Banking' },
-    { name: 'OAuth', icon: '🔑', category: 'Auth' },
-    { name: 'SAML', icon: '🎫', category: 'SSO' },
-    { name: 'Azure', icon: '☁️', category: 'Cloud' },
-    { name: 'AWS', icon: '🌩️', category: 'Cloud' },
-    { name: 'Salesforce', icon: '⚡', category: 'CRM' },
-    { name: 'Analytics', icon: '📊', category: 'Data' }
-  ];
+  const integrations = DataService.getIntegrations();
   
   return (
     <Section id="integration" background="dark">
@@ -33,7 +26,9 @@ export default function Integration() {
               key={index} 
               className="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center border border-gray-700"
             >
-              <div className="text-4xl mb-3">{integration.icon}</div>
+              <div className="mb-3 flex justify-center">
+                <Icon name={integration.icon} size={40} className="text-violet-500" />
+              </div>
               <h4 className="font-bold text-white mb-1">{integration.name}</h4>
               <p className="text-sm text-white">{integration.category}</p>
             </div>

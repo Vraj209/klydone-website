@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Navigation from "@/components/ui/Navigation";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -19,15 +20,22 @@ import Integration from "@/components/sections/Integration";
 import Newsletter from "@/components/sections/Newsletter";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import SkipLink from "@/lib/accessibility/SkipLink";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import {
   organizationStructuredData,
   localBusinessStructuredData,
   servicesStructuredData,
 } from "@/lib/structured-data";
 
+// Server Component - handles static data and SEO
 export default function Home() {
   return (
     <>
+      {/* Accessibility */}
+      <SkipLink />
+      
+      {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -48,27 +56,53 @@ export default function Home() {
       />
 
       <Navigation />
-      <main>
+      
+      <main id="main-content" role="main">
         <Hero />
-        <Testimonials />
+        
+        <Suspense fallback={<LoadingSpinner text="Loading testimonials..." />}>
+          <Testimonials />
+        </Suspense>
+        
         <About />
         <Benefits />
         <Features />
         <Process />
-        <Services />
+        
+        <Suspense fallback={<LoadingSpinner text="Loading services..." />}>
+          <Services />
+        </Suspense>
+        
         <AIServices />
         <UseCases />
-        <CaseStudies />
+        
+        <Suspense fallback={<LoadingSpinner text="Loading case studies..." />}>
+          <CaseStudies />
+        </Suspense>
+        
         <Comparison />
-        <Contact />
+        
+        <Suspense fallback={<LoadingSpinner text="Loading contact form..." />}>
+          <Contact />
+        </Suspense>
+        
         <Pricing />
         <FAQ />
-        <Newsletter />
+        
+        <Suspense fallback={<LoadingSpinner text="Loading newsletter..." />}>
+          <Newsletter />
+        </Suspense>
+        
         <Security />
         <Integration />
-        <Blog />
+        
+        <Suspense fallback={<LoadingSpinner text="Loading blog..." />}>
+          <Blog />
+        </Suspense>
+        
         <Changelog />
       </main>
+      
       <Footer />
     </>
   );

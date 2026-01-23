@@ -3,12 +3,18 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "./Button";
+import { useIsMobileMenuOpen, useUIActions } from "@/store/selectors";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const isMobileMenuOpen = useIsMobileMenuOpen();
+  const { toggleMobileMenu, closeMobileMenu } = useUIActions();
 
+  // SSR-safe client detection and scroll handler
   useEffect(() => {
+    setIsClient(true);
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -61,7 +67,7 @@ export default function Navigation() {
             </div>
 
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={toggleMobileMenu}
               className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
               aria-label="Toggle menu"
             >
@@ -99,7 +105,7 @@ export default function Navigation() {
               <Link
                 key={index}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
                 className="block py-2 text-gray-300 hover:text-white font-medium transition-colors"
               >
                 {link.name}

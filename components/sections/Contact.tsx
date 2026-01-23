@@ -1,29 +1,90 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback } from 'react';
 import Section from '../ui/Section';
 import SectionHeader from '../ui/SectionHeader';
 import Button from '../ui/Button';
+import { Icon } from '../icons';
+import { contactFormSchema, ContactFormData } from '@/lib/validations/schemas';
+import { 
+  useContactFormData,
+  useIsContactSubmitting,
+  useContactErrors,
+  useContactMessage,
+  useContactMessageType,
+  useContactActions
+} from '@/store/selectors';
+import { ValidationServiceFactory } from '@/lib/services/ValidationService';
+import { ApiServiceFactory } from '@/lib/services/ApiService';
+import LoadingSpinner from '../ui/LoadingSpinner';
+import ClientOnly from '../wrappers/ClientOnly';
+import { cn } from '@/lib/utils';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
+  // Atomic selectors to prevent re-renders
+  const formData = useContactFormData();
+  const isSubmitting = useIsContactSubmitting();
+  const errors = useContactErrors();
+  const message = useContactMessage();
+  const messageType = useContactMessageType();
   
-  const handleSubmit = (e: React.FormEvent) => {
+  // Actions
+  const {
+    setContactField,
+    setContactErrors,
+    clearContactErrors,
+    setContactSubmitting,
+    setContactMessage,
+    clearContactMessage,
+    resetContactForm,
+  } = useContactActions();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    try {
+      clearContactErrors();
+      setContactSubmitting(true);
+
+      // Use validation service following Dependency Inversion Principle
+      const validationService = ValidationServiceFactory.getInstance();
+      const validatedData = validationService.validate(contactFormSchema, formData);
+
+      // Use API service following Facade Pattern
+      const apiService = ApiServiceFactory.getInstance();
+      const result = await apiService.submitContact(validatedData);
+
+      if (result.success) {
+        setContactMessage(result.message, 'success');
+        resetContactForm();
+      } else {
+        setContactMessage(result.message, 'error');
+        if (result.errors) {
+          const fieldErrors: Record<string, string> = {};
+          result.errors.forEach((error: string) => {
+            const [field, message] = error.split(': ');
+            fieldErrors[field] = message;
+          });
+          setContactErrors(fieldErrors);
+        }
+      }
+    } catch (error) {
+      setContactMessage(
+        error instanceof Error ? error.message : 'An unexpected error occurred',
+        'error'
+      );
+    } finally {
+      setContactSubmitting(false);
+    }
   };
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      const { name, value } = e.target;
+      setContactField(name, value);
+    },
+    [setContactField]
+  );
   
   return (
     <Section id="contact" background="dark">
@@ -38,9 +99,7 @@ export default function Contact() {
           <div className="space-y-6 mb-8">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-violet-600 flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+                <Icon name="mail" size={24} className="text-white" />
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">Email</h3>
@@ -52,27 +111,22 @@ export default function Contact() {
             
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-violet-600 flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+                <Icon name="phone" size={24} className="text-white" />
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">Phone</h3>
-                  <a href="tel:+15551234567" className="text-white hover:underline">
-                    +1 (555) 123-4567
+                <a href="tel:+15551234567" className="text-white hover:underline">
+                  +1 (555) 123-4567
                 </a>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-violet-600 flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+                <Icon name="map-pin" size={24} className="text-white" />
               </div>
               <div>
-                  <h3 className="font-semibold text-white mb-1">Address</h3>
+                <h3 className="font-semibold text-white mb-1">Address</h3>
                 <p className="text-white">Toronto, Ontario, Canada</p>
               </div>
             </div>
@@ -90,22 +144,80 @@ export default function Contact() {
         </div>
         
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
-              Name *
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
-              placeholder="John Doe"
-            />
+          {/* Success/Error Message */}
+          {message && (
+            <div className={cn(
+              'p-4 rounded-lg border',
+              messageType === 'success' 
+                ? 'bg-green-50 border-green-200 text-green-800' 
+                : 'bg-red-50 border-red-200 text-red-800'
+            )}>
+              <div className="flex items-center gap-2">
+                <Icon 
+                  name={messageType === 'success' ? 'check' : 'alert-circle'} 
+                  size={20} 
+                />
+                <span>{message}</span>
+              </div>
+            </div>
+          )}
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
+                Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name || ''}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                className={cn(
+                  "w-full px-4 py-3 rounded-lg border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
+                  errors.name ? 'border-red-500' : 'border-gray-300',
+                  isSubmitting && 'opacity-50 cursor-not-allowed'
+                )}
+                placeholder="John Doe"
+                aria-describedby={errors.name ? 'name-error' : undefined}
+              />
+              {errors.name && (
+                <p id="name-error" className="mt-1 text-sm text-red-400">
+                  {errors.name}
+                </p>
+              )}
+            </div>
+            
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+                Email *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email || ''}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                className={cn(
+                  "w-full px-4 py-3 rounded-lg border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
+                  errors.email ? 'border-red-500' : 'border-gray-300',
+                  isSubmitting && 'opacity-50 cursor-not-allowed'
+                )}
+                placeholder="john@example.com"
+                aria-describedby={errors.email ? 'email-error' : undefined}
+              />
+              {errors.email && (
+                <p id="email-error" className="mt-1 text-sm text-red-400">
+                  {errors.email}
+                </p>
+              )}
+            </div>
           </div>
-          
+
           <div>
             <label htmlFor="company" className="block text-sm font-semibold text-white mb-2">
               Company
@@ -114,61 +226,115 @@ export default function Contact() {
               type="text"
               id="company"
               name="company"
-              value={formData.company}
+              value={formData.company || ''}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              disabled={isSubmitting}
+              className={cn(
+                "w-full px-4 py-3 rounded-lg border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
+                errors.company ? 'border-red-500' : 'border-gray-300',
+                isSubmitting && 'opacity-50 cursor-not-allowed'
+              )}
               placeholder="Your Company"
+              aria-describedby={errors.company ? 'company-error' : undefined}
             />
+            {errors.company && (
+              <p id="company-error" className="mt-1 text-sm text-red-400">
+                {errors.company}
+              </p>
+            )}
           </div>
-          
-          <div>
-            <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
-              Email *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder="john@example.com"
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder="+1 (555) 123-4567"
-            />
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="projectType" className="block text-sm font-semibold text-white mb-2">
+                Project Type
+              </label>
+              <select
+                id="projectType"
+                name="projectType"
+                value={formData.projectType || ''}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                className={cn(
+                  "w-full px-4 py-3 rounded-lg border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
+                  isSubmitting && 'opacity-50 cursor-not-allowed'
+                )}
+              >
+                <option value="">Select project type</option>
+                <option value="web-app">Web Application</option>
+                <option value="mobile-app">Mobile App</option>
+                <option value="ai-solution">AI Solution</option>
+                <option value="consulting">Consulting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="budget" className="block text-sm font-semibold text-white mb-2">
+                Budget Range
+              </label>
+              <select
+                id="budget"
+                name="budget"
+                value={formData.budget || ''}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                className={cn(
+                  "w-full px-4 py-3 rounded-lg border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
+                  isSubmitting && 'opacity-50 cursor-not-allowed'
+                )}
+              >
+                <option value="">Select budget range</option>
+                <option value="under-10k">Under $10k</option>
+                <option value="10k-50k">$10k - $50k</option>
+                <option value="50k-100k">$50k - $100k</option>
+                <option value="over-100k">Over $100k</option>
+              </select>
+            </div>
           </div>
           
           <div>
             <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
-              Project Brief
+              Project Brief *
             </label>
             <textarea
               id="message"
               name="message"
               rows={4}
-              value={formData.message}
+              required
+              value={formData.message || ''}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-              placeholder="Tell us about your project..."
+              disabled={isSubmitting}
+              className={cn(
+                "w-full px-4 py-3 rounded-lg border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all resize-none",
+                errors.message ? 'border-red-500' : 'border-gray-300',
+                isSubmitting && 'opacity-50 cursor-not-allowed'
+              )}
+              placeholder="Tell us about your project, goals, and requirements..."
+              aria-describedby={errors.message ? 'message-error' : undefined}
             />
+            {errors.message && (
+              <p id="message-error" className="mt-1 text-sm text-red-400">
+                {errors.message}
+              </p>
+            )}
           </div>
           
-          <Button type="submit" variant="primary" size="lg" fullWidth>
-            Send Message
+          <Button 
+            type="submit" 
+            variant="primary" 
+            size="lg" 
+            fullWidth
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <div className="flex items-center gap-2">
+                <LoadingSpinner size="sm" />
+                <span>Sending Message...</span>
+              </div>
+            ) : (
+              'Send Message'
+            )}
           </Button>
         </form>
       </div>

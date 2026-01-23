@@ -1,15 +1,12 @@
 import Section from '../ui/Section';
 import SectionHeader from '../ui/SectionHeader';
 import Button from '../ui/Button';
+import { Icon } from '../icons';
+import { DataService } from '../../data';
 
 export default function Security() {
-  const securityFeatures = [
-    'Secure coding standards & peer reviews',
-    'Role-based access control, encryption at rest & in-transit',
-    'Regular vulnerability scanning, pentesting and audits',
-    'Cloud-based disaster recovery & high-availability architecture',
-    'Compliance readiness (e.g., GDPR, SOC2, ISO 27001)'
-  ];
+  const securityFeatures = DataService.getSecurityFeatures();
+  const complianceBadges = DataService.getComplianceBadges();
   
   return (
     <Section id="security" background="dark">
@@ -39,26 +36,15 @@ export default function Security() {
         
         <div className="bg-gray-800 rounded-3xl p-8 border border-gray-700">
           <div className="grid grid-cols-2 gap-6">
-            <div className="text-center p-6 bg-gray-900 rounded-xl">
-              <div className="text-4xl mb-2">🔒</div>
-              <h4 className="font-bold text-white mb-1">GDPR</h4>
-              <p className="text-sm text-gray-400">Compliant</p>
-            </div>
-            <div className="text-center p-6 bg-gray-900 rounded-xl">
-              <div className="text-4xl mb-2">✅</div>
-              <h4 className="font-bold text-white mb-1">SOC 2</h4>
-              <p className="text-sm text-gray-400">Ready</p>
-            </div>
-            <div className="text-center p-6 bg-gray-900 rounded-xl">
-              <div className="text-4xl mb-2">🛡️</div>
-              <h4 className="font-bold text-white mb-1">ISO 27001</h4>
-              <p className="text-sm text-gray-400">Certified</p>
-            </div>
-            <div className="text-center p-6 bg-gray-900 rounded-xl">
-              <div className="text-4xl mb-2">🔐</div>
-              <h4 className="font-bold text-white mb-1">Encryption</h4>
-              <p className="text-sm text-gray-400">End-to-End</p>
-            </div>
+            {complianceBadges.map((badge, index) => (
+              <div key={index} className="text-center p-6 bg-gray-900 rounded-xl">
+                <div className="mb-2 flex justify-center">
+                  <Icon name={badge.icon} size={32} className="text-violet-500" />
+                </div>
+                <h4 className="font-bold text-white mb-1">{badge.title}</h4>
+                <p className="text-sm text-gray-400">{badge.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

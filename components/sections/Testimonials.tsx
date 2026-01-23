@@ -1,27 +1,9 @@
 import Section from '../ui/Section';
 import SectionHeader from '../ui/SectionHeader';
+import { DataService } from '../../data';
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      quote: 'Working with Klydone transformed our backend infrastructure and cut our release cycles in half. Their team really understood our fintech requirements.',
-      author: 'Sarah Chen',
-      role: 'CTO',
-      company: 'FinanceFlow Inc.'
-    },
-    {
-      quote: 'From UX design to final launch, their process was smooth and extremely professional. Highly recommend for any SaaS project.',
-      author: 'Michael Rodriguez',
-      role: 'Product Director',
-      company: 'CloudSync'
-    },
-    {
-      quote: 'Reliable, responsive and technically excellent — they built our open-banking integration ahead of schedule and under budget.',
-      author: 'David Thompson',
-      role: 'CEO',
-      company: 'PayStream Solutions'
-    }
-  ];
+  const testimonials = DataService.getTestimonials();
   
   return (
     <Section id="testimonials" background="dark" padding="md">

@@ -9,6 +9,7 @@ interface ButtonProps {
   className?: string;
   fullWidth?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export default function Button({ 
@@ -19,7 +20,8 @@ export default function Button({
   onClick,
   className = '',
   fullWidth = false,
-  type = 'button'
+  type = 'button',
+  disabled = false
 }: ButtonProps) {
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 hover:scale-105 active:scale-95';
   
@@ -36,7 +38,8 @@ export default function Button({
   };
   
   const widthClass = fullWidth ? 'w-full' : '';
-  const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`;
+  const disabledClass = disabled ? 'opacity-50 cursor-not-allowed hover:scale-100' : '';
+  const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${disabledClass} ${className}`;
   
   if (href) {
     return (
@@ -47,7 +50,7 @@ export default function Button({
   }
   
   return (
-    <button type={type} onClick={onClick} className={combinedClasses}>
+    <button type={type} onClick={onClick} className={combinedClasses} disabled={disabled}>
       {children}
     </button>
   );
