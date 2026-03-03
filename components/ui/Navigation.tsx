@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import { useIsMobileMenuOpen, useUIActions } from "@/store/selectors";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, CalendarCheck, Menu, X } from "lucide-react";
+import { SCHEDULE_LINK } from "@/data/constant";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled]   = useState(false);
@@ -43,7 +44,7 @@ export default function Navigation() {
           aria-label="Klydone home"
         >
           Klydone
-          <span className="ml-1 text-violet-600">.</span>
+          <span className="klydone-dot font-bold">.</span>
         </Link>
 
         {/* Desktop links */}
@@ -60,17 +61,13 @@ export default function Navigation() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href="#contact"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            Contact
-          </Link>
-          <Button href="#contact" variant="primary" size="sm">
+          <Link href={SCHEDULE_LINK} target="_blank">
+          <Button variant="primary" size="sm">
+            <CalendarCheck size={18} aria-hidden="true" />
             Book a Strategy Call
+            <ArrowRight size={18} aria-hidden="true" />
           </Button>
-        </div>
+          </Link>
 
         {/* Mobile hamburger */}
         <button
@@ -97,10 +94,14 @@ export default function Navigation() {
               </Link>
             ))}
             <div className="pt-3 pb-1">
-              <Button href="#contact" variant="primary" size="sm" fullWidth>
+              <Link href={SCHEDULE_LINK} target="_blank">
+              <Button variant="primary" size="sm" fullWidth>
+                <CalendarCheck size={18} aria-hidden="true" />
                 Book a Strategy Call
+                <ArrowRight size={18} aria-hidden="true" />
               </Button>
-            </div>
+              </Link> 
+              </div>
           </div>
         </div>
       )}

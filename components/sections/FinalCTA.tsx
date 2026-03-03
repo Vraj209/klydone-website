@@ -1,10 +1,12 @@
 import { ArrowRight, CalendarCheck } from 'lucide-react';
 import Button from '../ui/Button';
+import Link from 'next/link';
+import { SCHEDULE_LINK } from '@/data/constant';
 
 export default function FinalCTA() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-violet-50 via-indigo-50/60 to-white py-24"
+      className="relative overflow-hidden py-24"
       aria-labelledby="final-cta-heading"
     >
       {/* Subtle texture */}
@@ -18,20 +20,20 @@ export default function FinalCTA() {
       />
 
       {/* Glow orbs */}
-      <div
+      {/* <div
         data-parallax-speed="0.1"
         aria-hidden="true"
         className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full bg-violet-300/30 blur-3xl"
-      />
+      /> */}
       <div
         data-parallax-speed="0.14"
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-14 -right-20 h-64 w-64 rounded-full bg-sky-300/30 blur-3xl"
+        className="pointer-events-none absolute -bottom-14 -right-20 h-64 w-64 rounded-full blur-3xl"
       />
 
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Gradient frame */}
-        <div className="rounded-[38px] bg-gradient-to-br from-violet-400 via-indigo-400 to-sky-400 p-[1.5px] shadow-[0_28px_60px_-24px_rgba(79,70,229,0.35)]">
+        <div className="rounded-[38px]  p-[1.5px] card-shadow">
           {/* Card */}
           <div className="relative overflow-hidden rounded-[36px] border border-white/80 bg-white/90 px-6 py-14 text-center backdrop-blur-sm sm:px-12">
             <div
@@ -58,14 +60,13 @@ export default function FinalCTA() {
             </p>
 
             <div className="relative z-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Button href="#contact" variant="primary" size="lg">
+              <Link href= {SCHEDULE_LINK} target="_blank">
+              <Button variant="primary" size="lg">
                 <CalendarCheck size={18} aria-hidden="true" />
                 Book a Strategy Call
-              </Button>
-              <Button href="#pricing" variant="outline" size="lg">
-                Start with an AI Audit
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
+              </Link>
             </div>
 
             <p className="relative z-10 mt-8 text-sm text-gray-400">

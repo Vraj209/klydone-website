@@ -80,7 +80,7 @@ export default function Hero3DVisual() {
       </div>
 
       {/* Floating card A */}
-      <div
+      {/* <div
         data-klyd-3d
         className="absolute -left-5 top-8 rounded-2xl border border-violet-100 bg-white p-4 shadow-[0_18px_40px_-22px_rgba(124,58,237,0.7)] [transform-style:preserve-3d]"
         style={{ animation: 'klyd-float-card-a 7s ease-in-out infinite' }}
@@ -90,7 +90,7 @@ export default function Hero3DVisual() {
           <span className="text-xs font-semibold">AI Enrichment</span>
         </div>
         <p className="mt-1.5 text-[11px] text-gray-500">150+ data signals merged</p>
-      </div>
+      </div> */}
 
       {/* Floating card B */}
       <div

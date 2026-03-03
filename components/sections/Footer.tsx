@@ -10,18 +10,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="footer-loop border-t border-gray-100 bg-white text-gray-900"
-      onMouseMove={(event) => {
-        const rect = event.currentTarget.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-        event.currentTarget.style.setProperty('--footer-spot-x', `${x}%`);
-        event.currentTarget.style.setProperty('--footer-spot-y', `${y}%`);
-      }}
-      onMouseLeave={(event) => {
-        event.currentTarget.style.setProperty('--footer-spot-x', '50%');
-        event.currentTarget.style.setProperty('--footer-spot-y', '72%');
-      }}
+      className="relative z-10 bg-white text-gray-900 border-t border-gray-100"
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 pb-28">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6 mb-14">
@@ -30,7 +19,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-baseline gap-px text-2xl font-bold text-gray-900">
               Klydone
-              <span className="text-violet-600">.</span>
+              <span className="klydone-dot font-bold">.</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-gray-500">
               AI automations that remove manual work across support, sales ops, and internal
@@ -69,7 +58,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 md:flex-row">
-          <p className="text-sm text-gray-400">© {new Date().getFullYear()} Klydone. All rights reserved.</p>
+          <p className="text-sm text-gray-400">© {new Date().getFullYear()} Klydone&copy; <br /> All rights reserved.</p>
 
           <div className="flex items-center gap-5">
             {socialLinks.map((social, index) => (
@@ -89,11 +78,10 @@ export default function Footer() {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 -bottom-10 flex justify-center"
+          className="absolute inset-x-0 -bottom-0 flex justify-center"
         >
-          <div className="footer-brand-stack select-none text-[20vw] font-black uppercase leading-none tracking-tight md:text-[18vw]">
+          <div className="footer-brand-stack select-none text-[20vw] font-black uppercase leading-none tracking-tight md:text-[12vw]">
             <span className="footer-brand-base">KLYDONE</span>
-            <span className="footer-brand-highlight">KLYDONE</span>
           </div>
         </div>
       </div>

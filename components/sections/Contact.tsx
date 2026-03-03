@@ -6,6 +6,7 @@ import SectionHeader from '../ui/SectionHeader';
 import Button from '../ui/Button';
 import { Icon } from '../icons';
 import { contactFormSchema } from '@/lib/validations/schemas';
+import Link from 'next/link';
 import {
   useContactFormData,
   useIsContactSubmitting,
@@ -18,6 +19,8 @@ import { ValidationServiceFactory } from '@/lib/services/ValidationService';
 import { ApiServiceFactory } from '@/lib/services/ApiService';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import { cn } from '@/lib/utils';
+import { SCHEDULE_LINK } from '@/data/constant';
+import { ArrowRight, Library } from 'lucide-react';
 
 export default function Contact() {
   // Atomic selectors to prevent re-renders
@@ -170,9 +173,12 @@ export default function Contact() {
                   <p className="text-xl font-bold">10–30 hrs/wk</p>
                 </div>
               </div>
-              <Button href="#contact" variant="secondary">
-                Book Your Free 30-Minute Discovery Call
-              </Button>
+              <Link href={SCHEDULE_LINK} target="_blank">
+                <Button variant="secondary">
+                  Book Your Free 30-Minute Discovery Call
+                  <ArrowRight size={18} aria-hidden="true" />
+                </Button>
+              </Link>
             </div>
 
             <div
@@ -184,14 +190,14 @@ export default function Contact() {
               <p className="text-sm font-semibold text-gray-800">Form response SLA: &lt;24h</p>
             </div>
 
-            <div
+            {/* <div
               data-klyd-contact-3d
               className="absolute -bottom-5 left-6 rounded-2xl border border-sky-100 bg-white px-4 py-3 shadow-lg"
               style={{ animation: 'klyd-contact-float-b 7.5s ease-in-out infinite' }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-widest text-sky-500">Signal</p>
               <p className="text-sm font-semibold text-gray-800">Qualified workflow in 14–21 days</p>
-            </div>
+            </div> */}
           </div>
         </div>
 

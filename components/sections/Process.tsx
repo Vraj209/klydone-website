@@ -77,7 +77,7 @@ export default function Process() {
               <div className={`mb-5 h-1 w-10 rounded-full bg-gradient-to-r ${colors.bar}`} aria-hidden="true" />
 
               {/* Step number */}
-              <span className="mb-3 font-display text-5xl font-black text-gray-100 leading-none">
+              <span className="mb-3 font-display text-5xl font-bold leading-none">
                 {step.number}
               </span>
 

@@ -26,7 +26,7 @@ import {
 export default function Home() {
   return (
     <>
-      <SkipLink />
+      {/* <SkipLink /> */}
 
       {/* Structured data for SEO */}
       <script

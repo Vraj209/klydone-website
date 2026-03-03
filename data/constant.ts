@@ -1,0 +1,1 @@
+export const SCHEDULE_LINK = "https://calendly.com/klydoneinc/30min"

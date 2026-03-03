@@ -3,6 +3,8 @@ import Button from '../ui/Button';
 import HeroBackground from './HeroBackground';
 import TypingEffect from './TypingEffect';
 import Hero3DVisual from './Hero3DVisual';
+import { SCHEDULE_LINK } from '@/data/constant';
+import Link from 'next/link';
 
 const heroBullets = [
   'Automate support + internal ops with measurable KPIs',
@@ -69,10 +71,12 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Button href="#contact" variant="primary" size="lg">
+              <Link href={SCHEDULE_LINK} target="_blank">
+              <Button variant="primary" size="lg">
                 Book a Strategy Call
                 <ArrowRight size={17} aria-hidden="true" />
               </Button>
+              </Link>
               <Button href="#case-studies" variant="outline" size="lg">
                 <Calendar size={17} aria-hidden="true" />
                 See Case Studies

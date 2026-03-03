@@ -303,6 +303,6 @@ Social icons / links (LinkedIn, Twitter, GitHub, etc.)
 
 Contact information (email, phone, address)
 
-Copyright notice: “© [2025] [klydone]. All rights reserved.”
+Copyright notice: “© [2026] [klydone]. All rights reserved.”
 
 Optional: small link to “Site by [klydone]” if self-built.
