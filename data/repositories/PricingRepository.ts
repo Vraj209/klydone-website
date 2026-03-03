@@ -1,55 +1,50 @@
 import { PricingPlan } from '../types';
 
-// Pricing Repository following Single Responsibility Principle
+// Pricing Repository — AI automation engagement packages
 export class PricingRepository {
   static getPricingPlans(): PricingPlan[] {
     return [
       {
-        name: 'Starter',
-        subtitle: 'MVP Build',
-        description: 'Fixed-price, small team, 8-12 weeks',
+        name: 'AI Audit',
+        subtitle: '1 week · Fixed scope',
+        description: 'Understand where AI can move the needle before you spend a dollar on build.',
         features: [
-          'Initial consultation & planning',
-          'MVP development',
-          'Basic cloud deployment',
-          'Core features implementation',
-          '4 weeks post-launch support',
-          'Documentation'
+          'Workflow map + automation opportunity analysis',
+          'ROI estimate + risk assessment',
+          'Architecture + 90-day roadmap',
+          'Written findings delivered in 5 business days',
+          'Strategy call walkthrough included'
         ],
-        cta: 'Get Started',
+        cta: 'Get AI Audit',
         popular: false
       },
       {
-        name: 'Growth',
-        subtitle: 'Scale & Optimize',
-        description: 'Dedicated team, monthly retainer, iterative roadmap',
+        name: 'MVP Automation',
+        subtitle: '2–3 weeks · Fixed scope',
+        description: 'Ship 1–2 production-ready automations with full observability and team handoff.',
         features: [
-          'Everything in Starter',
-          'Dedicated development team',
-          'Continuous optimization',
-          'Advanced integrations',
-          'Priority support',
-          'Monthly strategy sessions',
-          'Performance monitoring'
+          '1–2 end-to-end workflows shipped',
+          'Logging, monitoring & error alerting',
+          'Evaluation tests + quality gates',
+          'Team handoff + runbook documentation',
+          'Two weeks of post-launch support'
         ],
-        cta: 'Schedule a Call',
+        cta: 'Book Build Sprint',
         popular: true
       },
       {
-        name: 'Enterprise',
-        subtitle: 'Custom Architecture',
-        description: 'Fully custom solution, SLA, dedicated resources',
+        name: 'Scale & Retain',
+        subtitle: 'Monthly · Ongoing',
+        description: 'Continuous improvements, new automations, model optimisation, and governance.',
         features: [
-          'Everything in Growth',
-          'Custom architecture design',
-          'Multi-region deployment',
-          'Dedicated account manager',
-          '24/7 support with SLA',
-          'Security audits',
-          'Compliance consulting',
-          'Unlimited integrations'
+          'Everything in MVP Automation',
+          'Unlimited new workflow requests',
+          'Prompt and model tuning',
+          'Cost optimisation + provider governance',
+          'Monthly strategy review',
+          'Dedicated Slack channel'
         ],
-        cta: 'Contact Sales',
+        cta: 'Talk Retainer',
         popular: false
       }
     ];

@@ -145,4 +145,4 @@ npm start
 
 ## License
 
-© 2025 Klydone. All rights reserved.
+© 2026 Klydone. All rights reserved.

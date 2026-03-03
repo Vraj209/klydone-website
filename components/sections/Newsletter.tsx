@@ -1,41 +1,41 @@
 'use client';
 
-import { useState } from 'react';
 import Section from '../ui/Section';
 import Button from '../ui/Button';
 
 export default function Newsletter() {
-  const [email, setEmail] = useState('');
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
-  
   return (
-    <Section background="dark" padding="md">
-      <div className="max-w-4xl mx-auto bg-violet-600 rounded-3xl p-12 text-center text-white">
-        <h2 className="text-4xl font-bold mb-4">Join Our Newsletter</h2>
-        <p className="text-xl text-white mb-8">
-          Stay ahead in software development, architecture trends and agency insights. Sign up to receive monthly tips, case studies and exclusive offers.  
+    <Section background="light" padding="md">
+      <div className="relative overflow-hidden rounded-[36px] border border-gray-100 bg-white px-6 py-16 text-center shadow-sm sm:px-12">
+        {/* Decorative soft hills */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-16 -left-8 h-40 w-80 rounded-[999px] bg-pink-200/60 blur-xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-14 left-1/4 h-32 w-60 rounded-[999px] bg-lime-200/60 blur-lg"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-16 right-0 h-40 w-72 rounded-[999px] bg-pink-200/60 blur-xl"
+        />
+
+        <h2 className="relative z-10 mx-auto max-w-3xl text-balance text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
+          Turn your growth ideas into reality today
+        </h2>
+        <p className="relative z-10 mx-auto mt-4 max-w-xl text-sm text-gray-500 sm:text-base">
+          Start your 14-day trial today. No credit card required.
         </p>
-        
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-            className="flex-1 px-6 py-4 rounded-xl text-white focus:outline-none border border-white/30 focus:ring-4 focus:ring-violet-600"
-          />
-          <Button type="submit" variant="secondary" size="lg">
-            Subscribe
+
+        <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button href="#contact" variant="secondary" size="md">
+            Start building for free
           </Button>
-        </form>
-        
-        <p className="text-sm text-blue-100 mt-4">
-          We respect your privacy. Unsubscribe anytime.
-        </p>
+          <Button href="#contact" variant="outline" size="md">
+            Get a demo
+          </Button>
+        </div>
       </div>
     </Section>
   );

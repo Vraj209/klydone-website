@@ -1,14 +1,14 @@
 import { SecurityFeature } from '../types';
 
-// Security Repository following Single Responsibility Principle
+// Security Repository — AI-specific governance and guardrails
 export class SecurityRepository {
   static getSecurityFeatures(): string[] {
     return [
-      'Secure coding standards & peer reviews',
-      'Role-based access control, encryption at rest & in-transit',
-      'Regular vulnerability scanning, pentesting and audits',
-      'Cloud-based disaster recovery & high-availability architecture',
-      'Compliance readiness (e.g., GDPR, SOC2, ISO 27001)'
+      'Least privilege access — AI agents only touch what they need',
+      'Data boundaries + retention controls — your data never trains public models',
+      'Human-in-the-loop approvals for critical or irreversible actions',
+      'Audit logs + monitoring — full observability on every automation run',
+      'Vendor-neutral architecture — swap providers without rebuilding'
     ];
   }
 
@@ -16,23 +16,23 @@ export class SecurityRepository {
     return [
       {
         icon: 'lock',
-        title: 'GDPR',
-        description: 'Compliant'
-      },
-      {
-        icon: 'check',
-        title: 'SOC 2',
-        description: 'Ready'
+        title: 'Least Privilege',
+        description: 'Scoped access only'
       },
       {
         icon: 'shield',
-        title: 'ISO 27001',
-        description: 'Certified'
+        title: 'Data Isolation',
+        description: 'No model training'
+      },
+      {
+        icon: 'check',
+        title: 'Audit Logs',
+        description: 'Full observability'
       },
       {
         icon: 'key',
-        title: 'Encryption',
-        description: 'End-to-End'
+        title: 'HITL Gates',
+        description: 'Human approvals'
       }
     ];
   }

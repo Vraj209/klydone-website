@@ -1,32 +1,32 @@
 import { ProcessStep } from '../types';
 
-// Process Repository following Single Responsibility Principle
+// Process Repository — AI automation delivery process
 export class ProcessRepository {
   static getProcessSteps(): ProcessStep[] {
     return [
       {
         number: '01',
-        title: 'Discovery & Planning',
-        description: 'We start by understanding your vision, goals and technology needs. We map out scope, timeline and budget.',
-        highlight: 'Smart Analyzing'
+        title: 'Discover',
+        description: 'We map your goals, data sources, constraints, and existing tools. You leave with a ranked list of automation opportunities and a clear ROI estimate.',
+        highlight: 'Goals & Constraints'
       },
       {
         number: '02',
-        title: 'Design & Architecture',
-        description: 'We craft UX wireframes, UI mockups and system architecture diagrams to align on structure and flow.',
-        highlight: 'Strategic Planning'
+        title: 'Design',
+        description: 'We produce the system architecture, data flow diagrams, evaluation plan, and UX for any human-facing touchpoints before writing a single line of code.',
+        highlight: 'Architecture & Evals'
       },
       {
         number: '03',
-        title: 'Build & Launch',
-        description: 'Agile sprints, frequent demos and continuous integration ensure steady progress and high quality.',
-        highlight: 'AI Development'
+        title: 'Build',
+        description: 'Implementation with observability built in from day one — logs, metrics, evaluation tests, and human-in-the-loop gates where your workflows require them.',
+        highlight: 'Implementation'
       },
       {
         number: '04',
-        title: 'Operate & Optimize',
-        description: 'Post-launch support, performance tuning, monitoring and future roadmap planning to keep your product evolving.',
-        highlight: 'Continuous Growth'
+        title: 'Launch',
+        description: 'We run team training, hand over runbooks, and stay on as your monitoring partner. Most clients ship something working in 14–21 days.',
+        highlight: 'Handoff & Iterate'
       }
     ];
   }

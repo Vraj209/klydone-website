@@ -1,45 +1,111 @@
+'use client';
+
 import Section from '../ui/Section';
 import SectionHeader from '../ui/SectionHeader';
 import { DataService } from '../../data';
 
+const cardThemes = [
+  {
+    bg: 'bg-lime-400',
+    text: 'text-gray-900',
+    muted: 'text-gray-800/80',
+    divider: 'border-gray-800/10',
+    avatar: 'bg-white/90 text-gray-900',
+  },
+  {
+    bg: 'bg-orange-400',
+    text: 'text-gray-900',
+    muted: 'text-gray-900/85',
+    divider: 'border-gray-900/10',
+    avatar: 'bg-white/90 text-gray-900',
+  },
+  {
+    bg: 'bg-sky-400',
+    text: 'text-gray-900',
+    muted: 'text-gray-900/85',
+    divider: 'border-gray-900/10',
+    avatar: 'bg-white/90 text-gray-900',
+  },
+] as const;
+
+function initials(name: string): string {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
+}
+
 export default function Testimonials() {
   const testimonials = DataService.getTestimonials();
-  
-  return (
-    <Section id="testimonials" background="dark" padding="md">
-      <SectionHeader
-        title="What Our Clients Say"
-        subtitle="Real results from real partnerships"
-        badge="Over 50+ Projects Delivered"
-      />
+  const loopedTestimonials = [...testimonials, ...testimonials];
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className="bg-black text-white border border-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 hover:border-violet-500"
-          >
-            <div className="mb-6">
-              <svg
-                className="w-10 h-10 text-violet-500"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-            </div>
-            <p className="text-white mb-6 leading-relaxed italic">
-              &quot;{testimonial.quote}&quot;
-            </p>
-            <div className="border-t pt-4">
-              <p className="font-bold text-white">{testimonial.author}</p>
-              <p className="text-sm text-gray-400">{testimonial.role}</p>
-              <p className="text-sm text-violet-600">{testimonial.company}</p>
-            </div>
-          </div>
-        ))}
+  return (
+    <Section id="testimonials" background="light" padding="md">
+      <style>{`
+        @keyframes klyd-testimonials-marquee {
+          from { transform: translate3d(0, 0, 0); }
+          to   { transform: translate3d(calc(-50% - 8px), 0, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [data-klyd-marquee-track] {
+            animation: none !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
+
+      <div className="mb-8">
+        <SectionHeader
+          title="What our customers say about us..."
+          subtitle="Trusted by teams building serious AI operations."
+          badge="Customer stories"
+          centered={false}
+        />
+      </div>
+
+      <div
+        className="group overflow-hidden"
+        aria-label="Customer stories carousel"
+      >
+        <div
+          data-klyd-marquee-track
+          className="flex w-max gap-4 animate-[klyd-testimonials-marquee_32s_linear_infinite] group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+        >
+        {loopedTestimonials.map((testimonial, index) => {
+          const theme = cardThemes[index % cardThemes.length];
+          const isClone = index >= testimonials.length;
+          return (
+            <article
+              key={`${testimonial.author}-${testimonial.company}-${index}`}
+              aria-hidden={isClone}
+              className={`min-h-[340px] w-[88vw] min-w-[88vw] sm:w-[520px] sm:min-w-[520px] rounded-[28px] p-7 shadow-[0_24px_45px_-28px_rgba(17,24,39,0.45)] ${theme.bg} ${theme.text}`}
+            >
+              <p className="mb-8 text-3xl font-bold tracking-tight">{testimonial.company}</p>
+              <p className={`mb-10 text-[30px] leading-none font-display ${theme.text}`}>“</p>
+              <p className={`min-h-[112px] text-lg leading-relaxed ${theme.muted}`}>
+                {testimonial.quote}
+              </p>
+
+              <div className={`mt-8 border-t pt-5 ${theme.divider}`}>
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl text-sm font-bold ${theme.avatar}`}
+                  >
+                    {initials(testimonial.author)}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold">{testimonial.author}</p>
+                    <p className="text-xs">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+        </div>
       </div>
     </Section>
   );
 }
-

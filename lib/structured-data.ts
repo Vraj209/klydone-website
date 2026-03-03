@@ -16,7 +16,7 @@ export const organizationStructuredData = {
     "@type": "ContactPoint",
     telephone: "+1-555-123-4567",
     contactType: "Customer Service",
-    email: "hello@klydone.com",
+    email: "klydoneinc@gmail.com",
     availableLanguage: "English",
   },
   sameAs: [

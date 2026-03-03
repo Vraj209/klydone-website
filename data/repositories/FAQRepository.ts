@@ -1,28 +1,36 @@
 import { FAQ } from '../types';
 
-// FAQ Repository following Single Responsibility Principle
+// FAQ Repository — objection-handling questions optimised for AI automation sales
 export class FAQRepository {
   static getFAQs(): FAQ[] {
     return [
       {
-        question: 'How do you ensure project stays on schedule?',
-        answer: 'We use agile sprints, transparent dashboards and weekly check-ins so you always know status. Our project management approach includes clear milestones, regular demos, and proactive communication to prevent delays.'
+        question: 'How fast can we see results?',
+        answer: 'Most teams see a working automation in 2–3 weeks. If you start with an AI Audit, you\'ll get a roadmap and ROI estimate in 5 business days.'
       },
       {
-        question: 'What technologies do you use?',
-        answer: 'We favour Go for backend, Node.js / TypeScript for services; React/Next.js for frontend; Azure/AWS for cloud; DevOps best practices. We choose the right tools based on your specific requirements and scale needs.'
+        question: 'Do you use our data to train models?',
+        answer: 'No. Your data stays within your environment and the providers you approve. We design systems with data minimisation and clear retention controls.'
       },
       {
-        question: 'Do you work with startups as well as enterprises?',
-        answer: 'Yes — we partner with early-stage companies for MVPs and with large organisations for platform engineering and modernisation. Our flexible engagement models accommodate businesses of all sizes.'
+        question: 'What tools do you integrate with?',
+        answer: 'Common integrations include Slack, Gmail, HubSpot, Zendesk, Notion, Google Drive, Airtable, Postgres, Stripe, and internal APIs. If you have a custom system, we build adapters.'
       },
       {
-        question: 'How do you handle support post-launch?',
-        answer: 'We offer ongoing maintenance retainers, monitoring and optimisation packages tailored to your business. This includes 24/7 monitoring, performance tuning, feature enhancements, and security updates.'
+        question: 'How do you prevent hallucinations?',
+        answer: 'We use RAG grounding, structured outputs, validation, and evaluation tests. For critical workflows, we add human approval steps.'
       },
       {
-        question: 'What about security & compliance?',
-        answer: 'Security is built in from day one: secure coding, audits, monitoring, and compliance with relevant standards. We follow industry best practices including GDPR, SOC2, and ISO 27001 requirements as needed.'
+        question: 'What\'s the pricing model?',
+        answer: 'We offer fixed-scope sprints for the Audit and MVP, then optional monthly support for scaling. Pricing depends on workflows, integrations, and compliance needs.'
+      },
+      {
+        question: 'Do you offer ongoing support?',
+        answer: 'Yes — monitoring, continuous improvements, prompt and model tuning, new automations, and cost optimisation are all included in our Scale & Retain retainer.'
+      },
+      {
+        question: 'Can this work with compliance requirements?',
+        answer: 'Yes. We can design for least privilege, audit logs, retention controls, and provider choices — including enterprise setups — based on your specific requirements.'
       }
     ];
   }

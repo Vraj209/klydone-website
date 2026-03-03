@@ -1,23 +1,17 @@
 import { Suspense } from 'react';
 import Navigation from "@/components/ui/Navigation";
+import ExperienceEnhancer from "@/components/effects/ExperienceEnhancer";
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Features from "@/components/sections/Features";
-import Benefits from "@/components/sections/Benefits";
-import Process from "@/components/sections/Process";
-import Services from "@/components/sections/Services";
-import AIServices from "@/components/sections/AIServices";
-import UseCases from "@/components/sections/UseCases";
-import Testimonials from "@/components/sections/Testimonials";
-import CaseStudies from "@/components/sections/CaseStudies";
-import Comparison from "@/components/sections/Comparison";
+import ProofStrip from "@/components/sections/ProofStrip";
+import Problem from "@/components/sections/Problem";
+import Solution from "@/components/sections/Solution";
 import Pricing from "@/components/sections/Pricing";
-import FAQ from "@/components/sections/FAQ";
-import Blog from "@/components/sections/Blog";
-import Changelog from "@/components/sections/Changelog";
+import CaseStudies from "@/components/sections/CaseStudies";
+import Process from "@/components/sections/Process";
 import Security from "@/components/sections/Security";
-import Integration from "@/components/sections/Integration";
-import Newsletter from "@/components/sections/Newsletter";
+import Testimonials from "@/components/sections/Testimonials";
+import FAQ from "@/components/sections/FAQ";
+import FinalCTA from "@/components/sections/FinalCTA";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import SkipLink from "@/lib/accessibility/SkipLink";
@@ -28,81 +22,79 @@ import {
   servicesStructuredData,
 } from "@/lib/structured-data";
 
-// Server Component - handles static data and SEO
+// Server Component — composes static marketing sections
 export default function Home() {
   return (
     <>
-      {/* Accessibility */}
       <SkipLink />
-      
-      {/* Structured Data for SEO */}
+
+      {/* Structured data for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationStructuredData),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationStructuredData) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessStructuredData),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessStructuredData) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(servicesStructuredData),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesStructuredData) }}
       />
 
       <Navigation />
-      
+      <ExperienceEnhancer />
+
       <main id="main-content" role="main">
-        <Hero />
-        
-        <Suspense fallback={<LoadingSpinner text="Loading testimonials..." />}>
-          <Testimonials />
-        </Suspense>
-        
-        <About />
-        <Benefits />
-        <Features />
-        <Process />
-        
-        <Suspense fallback={<LoadingSpinner text="Loading services..." />}>
-          <Services />
-        </Suspense>
-        
-        <AIServices />
-        <UseCases />
-        
-        <Suspense fallback={<LoadingSpinner text="Loading case studies..." />}>
-          <CaseStudies />
-        </Suspense>
-        
-        <Comparison />
-        
-        <Suspense fallback={<LoadingSpinner text="Loading contact form..." />}>
-          <Contact />
-        </Suspense>
-        
-        <Pricing />
-        <FAQ />
-        
-        <Suspense fallback={<LoadingSpinner text="Loading newsletter..." />}>
-          <Newsletter />
-        </Suspense>
-        
-        <Security />
-        <Integration />
-        
-        <Suspense fallback={<LoadingSpinner text="Loading blog..." />}>
-          <Blog />
-        </Suspense>
-        
-        <Changelog />
+        {/* 1. Hero — value prop + primary CTA */}
+        <div data-reveal="up"><Hero /></div>
+
+        {/* 2. Social proof strip — credibility in 2 seconds */}
+        <div data-reveal="up"><ProofStrip /></div>
+
+        {/* 3. Problem → cost of inaction */}
+        <div data-reveal="left"><Problem /></div>
+
+        {/* 4. Solution — 3 product cards */}
+        <div data-reveal="up"><Solution /></div>
+
+        {/* 5. Packages — offers and pricing */}
+        <div data-reveal="up"><Pricing /></div>
+
+        {/* 6. Case studies — before/after/results */}
+        <div data-reveal="up">
+          <Suspense fallback={<LoadingSpinner text="Loading case studies..." />}>
+            <CaseStudies />
+          </Suspense>
+        </div>
+
+        {/* 7. Process — predictable delivery */}
+        <div data-reveal="up"><Process /></div>
+
+        {/* 8. Security & Governance */}
+        <div data-reveal="right"><Security /></div>
+
+        {/* 9. Testimonials — social proof */}
+        <div data-reveal="up">
+          <Suspense fallback={<LoadingSpinner text="Loading testimonials..." />}>
+            <Testimonials />
+          </Suspense>
+        </div>
+
+        {/* 10. FAQ — objection handling */}
+        <div data-reveal="up"><FAQ /></div>
+
+        {/* 11. Contact form */}
+        <div data-reveal="up">
+          <Suspense fallback={<LoadingSpinner text="Loading contact form..." />}>
+            <Contact />
+          </Suspense>
+        </div>
+
+        {/* 12. Final CTA */}
+        <div data-reveal="zoom"><FinalCTA /></div>
       </main>
-      
+
       <Footer />
     </>
   );
