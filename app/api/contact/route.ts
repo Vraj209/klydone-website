@@ -127,4 +127,3 @@ export async function GET() {
     message: 'Method not allowed',
   }, { status: 405 });
 }
-}
