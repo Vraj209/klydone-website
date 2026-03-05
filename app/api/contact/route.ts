@@ -5,6 +5,7 @@ import { ValidationError, RateLimitError } from '@/lib/errors/AppError';
 
 // Rate limiting map (in production, use Redis or database)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const contactNotificationWorkerUrl = process.env.CLOUDFLARE_CONTACT_WORKER_URL;
 
 // Rate limiting function
 function checkRateLimit(ip: string): boolean {
@@ -27,6 +28,53 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+async function notifyContactSubmission(payload: {
+  name: string;
+  email: string;
+  company?: string;
+  message: string;
+  projectType?: string;
+  budget?: string;
+  timeline?: string;
+  submittedAt: string;
+  ip: string;
+}) {
+  if (!contactNotificationWorkerUrl) {
+    throw new Error('Missing CLOUDFLARE_CONTACT_WORKER_URL environment variable.');
+  }
+
+  const workerResponse = await fetch(contactNotificationWorkerUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      event: 'contact_form_submission',
+      subject: `New contact message from ${payload.name}`,
+      sender: {
+        name: payload.name,
+        email: payload.email,
+        company: payload.company || 'N/A',
+      },
+      message: payload.message,
+      metadata: {
+        projectType: payload.projectType || 'N/A',
+        budget: payload.budget || 'N/A',
+        timeline: payload.timeline || 'N/A',
+        submittedAt: payload.submittedAt,
+        ip: payload.ip,
+      },
+    }),
+  });
+
+  if (!workerResponse.ok) {
+    const errorText = await workerResponse.text();
+    throw new Error(
+      `Cloudflare Worker notification failed (${workerResponse.status}): ${errorText || 'Unknown error'}`
+    );
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Get client IP for rate limiting
@@ -42,19 +90,17 @@ export async function POST(request: NextRequest) {
     // Parse and validate request body
     const body = await request.json();
     const validatedData = contactFormSchema.parse(body);
-
-    // Simulate processing delay (remove in production)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Here you would typically:
-    // 1. Save to database
-    // 2. Send email notification
-    // 3. Integrate with CRM
-    // 4. Send confirmation email
+    const submittedAt = new Date().toISOString();
 
     console.log('Contact form submission:', {
       ...validatedData,
-      timestamp: new Date().toISOString(),
+      timestamp: submittedAt,
+      ip,
+    });
+
+    await notifyContactSubmission({
+      ...validatedData,
+      submittedAt,
       ip,
     });
 
@@ -80,4 +126,5 @@ export async function GET() {
     success: false,
     message: 'Method not allowed',
   }, { status: 405 });
+}
 }
