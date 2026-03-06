@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Section from '../ui/Section';
 import SectionHeader from '../ui/SectionHeader';
 import Button from '../ui/Button';
@@ -20,7 +20,119 @@ import { ApiServiceFactory } from '@/lib/services/ApiService';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import { cn } from '@/lib/utils';
 import { SCHEDULE_LINK } from '@/data/constant';
-import { ArrowRight, Library } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown } from 'lucide-react';
+
+type DropdownOption = {
+  value: string;
+  label: string;
+};
+
+function ThemedDropdown({
+  id,
+  value,
+  placeholder,
+  options,
+  disabled,
+  onSelect,
+}: {
+  id: string;
+  value: string;
+  placeholder: string;
+  options: DropdownOption[];
+  disabled?: boolean;
+  onSelect: (value: string) => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const selectedOption = options.find((option) => option.value === value);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="relative">
+      <button
+        id={id}
+        type="button"
+        disabled={disabled}
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={cn(
+          'h-12 w-full rounded-xl border border-gray-200 bg-white/80 px-4 text-left text-sm shadow-[0_1px_0_0_rgba(255,255,255,0.85)_inset] outline-none transition-all hover:border-gray-300 focus:border-violet-400 focus:bg-white focus:ring-4 focus:ring-violet-100 disabled:cursor-not-allowed disabled:opacity-60',
+          !selectedOption ? 'text-gray-400' : 'text-gray-900'
+        )}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+      >
+        <span className="block truncate pr-8">{selectedOption?.label || placeholder}</span>
+        <ChevronDown
+          size={16}
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition-transform',
+            isOpen && 'rotate-180'
+          )}
+        />
+      </button>
+
+      {isOpen && (
+        <div className="absolute z-20 mt-2 max-h-64 w-full overflow-auto rounded-xl border border-violet-100 bg-white p-1 shadow-[0_16px_40px_-20px_rgba(79,70,229,0.6)]">
+          <button
+            type="button"
+            onClick={() => {
+              onSelect('');
+              setIsOpen(false);
+            }}
+            className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm text-gray-500 transition-colors hover:bg-violet-50 hover:text-gray-900"
+          >
+            <span>{placeholder}</span>
+            {!selectedOption && <Check size={14} className="text-violet-500" aria-hidden="true" />}
+          </button>
+          {options.map((option) => {
+            const isSelected = option.value === value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => {
+                  onSelect(option.value);
+                  setIsOpen(false);
+                }}
+                className={cn(
+                  'flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors',
+                  isSelected
+                    ? 'bg-violet-50 font-medium text-violet-700'
+                    : 'text-gray-700 hover:bg-violet-50 hover:text-gray-900'
+                )}
+              >
+                <span>{option.label}</span>
+                {isSelected && <Check size={14} className="text-violet-600" aria-hidden="true" />}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Contact() {
   // Atomic selectors to prevent re-renders
@@ -86,6 +198,28 @@ export default function Contact() {
     },
     [setContactField]
   );
+
+  const labelClasses = 'mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500';
+  const fieldBaseClasses =
+    'h-12 w-full rounded-xl border bg-white/80 px-4 text-sm text-gray-900 shadow-[0_1px_0_0_rgba(255,255,255,0.85)_inset] outline-none transition-all placeholder:text-gray-400 focus:border-violet-400 focus:bg-white focus:ring-4 focus:ring-violet-100 disabled:cursor-not-allowed disabled:opacity-60';
+  const getFieldClasses = (hasError?: string) =>
+    cn(
+      fieldBaseClasses,
+      hasError ? 'border-red-300 focus:border-red-400 focus:ring-red-100' : 'border-gray-200 hover:border-gray-300'
+    );
+  const projectTypeOptions: DropdownOption[] = [
+    { value: 'web-app', label: 'Web Application' },
+    { value: 'mobile-app', label: 'Mobile App' },
+    { value: 'ai-solution', label: 'AI Solution' },
+    { value: 'consulting', label: 'Consulting' },
+    { value: 'other', label: 'Other' },
+  ];
+  const budgetOptions: DropdownOption[] = [
+    { value: 'under-10k', label: 'Under $10k' },
+    { value: '10k-50k', label: '$10k - $50k' },
+    { value: '50k-100k', label: '$50k - $100k' },
+    { value: 'over-100k', label: 'Over $100k' },
+  ];
   
   return (
     <Section id="contact" background="tinted">
@@ -203,15 +337,20 @@ export default function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 rounded-3xl border border-gray-100 bg-white p-7 shadow-[0_20px_45px_-25px_rgba(79,70,229,0.35)] md:p-8"
+          className="space-y-6 rounded-3xl border border-violet-100/70 bg-gradient-to-b from-white via-white to-violet-50/40 p-7 shadow-[0_28px_60px_-30px_rgba(79,70,229,0.45)] backdrop-blur md:p-8"
         >
+          <div className="rounded-2xl border border-violet-100/70 bg-white/80 px-4 py-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-600">Project intake</p>
+            <p className="mt-1 text-sm text-gray-600">Share a few details and we will reply with next steps within 24 hours.</p>
+          </div>
+
           {/* Success/Error Message */}
           {message && (
             <div className={cn(
-              'p-4 rounded-lg border',
+              'rounded-xl border p-4',
               messageType === 'success' 
-                ? 'bg-green-50 border-green-200 text-green-800' 
-                : 'bg-red-50 border-red-200 text-red-800'
+                ? 'border-green-200 bg-green-50 text-green-800'
+                : 'border-red-200 bg-red-50 text-red-800'
             )}>
               <div className="flex items-center gap-2">
                 <Icon 
@@ -225,7 +364,7 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="name" className={labelClasses}>
                 Name *
               </label>
               <input
@@ -236,23 +375,19 @@ export default function Contact() {
                 value={formData.name || ''}
                 onChange={handleChange}
                 disabled={isSubmitting}
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
-                  errors.name ? 'border-red-500' : 'border-gray-300',
-                  isSubmitting && 'opacity-50 cursor-not-allowed'
-                )}
+                className={getFieldClasses(errors.name)}
                 placeholder="John Doe"
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {errors.name && (
-                <p id="name-error" className="mt-1 text-sm text-red-400">
+                <p id="name-error" className="mt-2 text-xs text-red-500">
                   {errors.name}
                 </p>
               )}
             </div>
             
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="email" className={labelClasses}>
                 Email *
               </label>
               <input
@@ -263,16 +398,12 @@ export default function Contact() {
                 value={formData.email || ''}
                 onChange={handleChange}
                 disabled={isSubmitting}
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
-                  errors.email ? 'border-red-500' : 'border-gray-300',
-                  isSubmitting && 'opacity-50 cursor-not-allowed'
-                )}
+                className={getFieldClasses(errors.email)}
                 placeholder="john@example.com"
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {errors.email && (
-                <p id="email-error" className="mt-1 text-sm text-red-400">
+                <p id="email-error" className="mt-2 text-xs text-red-500">
                   {errors.email}
                 </p>
               )}
@@ -280,7 +411,7 @@ export default function Contact() {
           </div>
 
           <div>
-            <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="company" className={labelClasses}>
               Company
             </label>
             <input
@@ -290,16 +421,12 @@ export default function Contact() {
               value={formData.company || ''}
               onChange={handleChange}
               disabled={isSubmitting}
-              className={cn(
-                "w-full px-4 py-3 rounded-xl border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
-                errors.company ? 'border-red-500' : 'border-gray-300',
-                isSubmitting && 'opacity-50 cursor-not-allowed'
-              )}
+              className={getFieldClasses(errors.company)}
               placeholder="Your Company"
               aria-describedby={errors.company ? 'company-error' : undefined}
             />
             {errors.company && (
-              <p id="company-error" className="mt-1 text-sm text-red-400">
+              <p id="company-error" className="mt-2 text-xs text-red-500">
                 {errors.company}
               </p>
             )}
@@ -307,55 +434,36 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="projectType" className={labelClasses}>
                 Project Type
               </label>
-              <select
+              <ThemedDropdown
                 id="projectType"
-                name="projectType"
                 value={formData.projectType || ''}
-                onChange={handleChange}
+                placeholder="Select project type"
+                options={projectTypeOptions}
                 disabled={isSubmitting}
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
-                  isSubmitting && 'opacity-50 cursor-not-allowed'
-                )}
-              >
-                <option value="">Select project type</option>
-                <option value="web-app">Web Application</option>
-                <option value="mobile-app">Mobile App</option>
-                <option value="ai-solution">AI Solution</option>
-                <option value="consulting">Consulting</option>
-                <option value="other">Other</option>
-              </select>
+                onSelect={(selectedValue) => setContactField('projectType', selectedValue)}
+              />
             </div>
 
             <div>
-              <label htmlFor="budget" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="budget" className={labelClasses}>
                 Budget Range
               </label>
-              <select
+              <ThemedDropdown
                 id="budget"
-                name="budget"
                 value={formData.budget || ''}
-                onChange={handleChange}
+                placeholder="Select budget range"
+                options={budgetOptions}
                 disabled={isSubmitting}
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all",
-                  isSubmitting && 'opacity-50 cursor-not-allowed'
-                )}
-              >
-                <option value="">Select budget range</option>
-                <option value="under-10k">Under $10k</option>
-                <option value="10k-50k">$10k - $50k</option>
-                <option value="50k-100k">$50k - $100k</option>
-                <option value="over-100k">Over $100k</option>
-              </select>
+                onSelect={(selectedValue) => setContactField('budget', selectedValue)}
+              />
             </div>
           </div>
           
           <div>
-            <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="message" className={labelClasses}>
               Project Brief *
             </label>
             <textarea
@@ -367,15 +475,14 @@ export default function Contact() {
               onChange={handleChange}
               disabled={isSubmitting}
               className={cn(
-                "w-full px-4 py-3 rounded-xl border bg-white text-gray-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all resize-none",
-                errors.message ? 'border-red-500' : 'border-gray-300',
-                isSubmitting && 'opacity-50 cursor-not-allowed'
+                getFieldClasses(errors.message),
+                'h-auto min-h-[132px] resize-y py-3'
               )}
               placeholder="Tell us about your project, goals, and requirements..."
               aria-describedby={errors.message ? 'message-error' : undefined}
             />
             {errors.message && (
-              <p id="message-error" className="mt-1 text-sm text-red-400">
+              <p id="message-error" className="mt-2 text-xs text-red-500">
                 {errors.message}
               </p>
             )}
@@ -397,6 +504,9 @@ export default function Contact() {
               'Send Message'
             )}
           </Button>
+          <p className="text-center text-xs text-gray-500">
+            By submitting, you agree to be contacted by our team about your project.
+          </p>
         </form>
       </div>
     </Section>
