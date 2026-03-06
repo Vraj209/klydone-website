@@ -10,12 +10,43 @@ const painPoints = [
 export default function Problem() {
   return (
     <section id="problem" className="bg-white py-20 lg:py-24" aria-labelledby="problem-heading">
+      <style>{`
+        @keyframes klyd-hidden-cost-type {
+          0%, 15% { width: 0ch; }
+          45%, 70% { width: 12ch; }
+          100% { width: 0ch; }
+        }
+
+        @keyframes klyd-hidden-cost-caret {
+          0%, 49% { border-color: rgba(79, 70, 229, 0.95); }
+          50%, 100% { border-color: transparent; }
+        }
+
+        .klyd-hidden-cost-typing {
+          display: inline-block;
+          width: 0ch;
+          overflow: hidden;
+          white-space: nowrap;
+          border-right: 0.12em solid rgba(79, 70, 229, 0.95);
+          padding-right: 0.12em;
+          animation:
+            klyd-hidden-cost-type 4.8s steps(12, end) infinite,
+            klyd-hidden-cost-caret 0.8s step-end infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .klyd-hidden-cost-typing {
+            width: 12ch;
+            animation: none;
+          }
+        }
+      `}</style>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
 
           {/* Left */}
           <div>
-            <span className="mb-4 inline-block rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-violet-700">
+            <span className="badge-shine mb-4 inline-block rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-violet-700">
               The real problem
             </span>
             <h2
@@ -23,7 +54,7 @@ export default function Problem() {
               className="mb-5 font-display text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl"
             >
               Manual work is your biggest{' '}
-              <span className="font-display italic gradient-text">hidden cost.</span>
+              <span className="font-display  gradient-text">hidden cost.</span>
             </h2>
             <p className="mb-8 text-base leading-relaxed text-gray-500">
               Every week your team spends on busywork is a week not spent on growth. The longer
@@ -48,9 +79,9 @@ export default function Problem() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-violet-600">
               The bridge
             </p>
-            <blockquote className="font-display text-2xl font-semibold italic leading-snug text-gray-900">
-              &ldquo;AI works when it&apos;s grounded, measurable, and maintained — not when it&apos;s
-              just a chatbot bolted on.&rdquo;
+            <blockquote className="font-display text-2xl font-semibold leading-snug text-gray-900">
+              AI works when it&apos;s grounded, measurable, and maintained — not when it&apos;s
+              just a chatbot bolted on.
             </blockquote>
             <p className="mt-5 text-sm leading-relaxed text-gray-500">
               We build AI systems tied to your actual processes, instrumented for quality, and

@@ -41,7 +41,7 @@ export default function FinalCTA() {
               className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-violet-100/70 to-transparent"
             />
 
-            <span className="relative z-10 mb-5 inline-block rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-sm font-semibold text-violet-700">
+            <span className="badge-shine relative z-10 mb-5 inline-block rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-sm font-semibold text-violet-700">
               Ready to get started?
             </span>
 

@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
 
             {/* Eyebrow */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-sm font-medium text-violet-700">
+            <div className="badge-shine mb-7 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-sm font-medium text-violet-700">
               <span className="h-2 w-2 animate-pulse rounded-full bg-violet-500" aria-hidden="true" />
               AI Automation for Operations
             </div>
@@ -53,11 +53,11 @@ export default function Hero() {
             <TypingEffect />
 
             {/* Sub */}
-            <p className="mx-auto mb-9 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg lg:mx-0">
+            {/* <p className="mx-auto mb-9 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg lg:mx-0">
               We help ops-heavy teams automate repetitive workflows using AI agents, RAG, and
               integrations — with security, observability, and measurable ROI. No risky
               deployments. No black-box tooling.
-            </p>
+            </p> */}
 
             {/* Hero bullets */}
             <ul className="mx-auto mb-10 flex max-w-xl flex-col gap-2.5 text-left lg:mx-0" role="list">

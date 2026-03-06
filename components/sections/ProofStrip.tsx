@@ -48,7 +48,7 @@ export default function ProofStrip() {
             {loopTicker.map((item, idx) => (
               <span
                 key={`${item}-${idx}`}
-                className="inline-flex items-center gap-2 rounded-full border border-violet-200/80 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-violet-700 shadow-sm"
+                className="badge-shine inline-flex items-center gap-2 rounded-full border border-violet-200/80 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-violet-700 shadow-sm"
               >
                 {item}
                 <span className="h-1 w-1 rounded-full bg-violet-400" aria-hidden="true" />
