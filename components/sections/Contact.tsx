@@ -168,8 +168,9 @@ export default function Contact() {
       const result = await apiService.submitContact(validatedData);
 
       if (result.success) {
-        setContactMessage(result.message, 'success');
+        const successMessage = result.message;
         resetContactForm();
+        setContactMessage(successMessage, 'success');
       } else {
         setContactMessage(result.message, 'error');
         if (result.errors) {
