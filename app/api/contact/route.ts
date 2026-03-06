@@ -49,21 +49,15 @@ async function notifyContactSubmission(payload: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      event: 'contact_form_submission',
-      subject: `New contact message from ${payload.name}`,
-      sender: {
-        name: payload.name,
-        email: payload.email,
-        company: payload.company || 'N/A',
-      },
+      name: payload.name,
+      email: payload.email,
+      company: payload.company || 'N/A',
       message: payload.message,
-      metadata: {
-        projectType: payload.projectType || 'N/A',
-        budget: payload.budget || 'N/A',
-        timeline: payload.timeline || 'N/A',
-        submittedAt: payload.submittedAt,
-        ip: payload.ip,
-      },
+      projectType: payload.projectType || 'N/A',
+      budget: payload.budget || 'N/A',
+      timeline: payload.timeline || 'N/A',
+      submittedAt: payload.submittedAt,
+      ip: payload.ip,
     }),
   });
 
