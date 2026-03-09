@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import AppProviders from "@/components/providers/AppProviders";
 
@@ -88,6 +89,18 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/cqq6hmq.css" />
       </head>
       <body className="font-sans antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y0MLRZ7V0S"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Y0MLRZ7V0S');
+          `}
+        </Script>
         <AppProviders>
           {children}
         </AppProviders>
