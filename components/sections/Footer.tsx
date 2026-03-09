@@ -30,7 +30,7 @@ export default function Footer() {
                 hello@klydone.com
               </a>
               <a href="tel:+15551234567" className="block text-sm text-gray-500 hover:text-violet-600 transition-colors">
-                +1 (555) 123-4567
+                +1 (873) 498-5370
               </a>
             </div>
           </div>

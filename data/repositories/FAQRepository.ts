@@ -5,32 +5,32 @@ export class FAQRepository {
   static getFAQs(): FAQ[] {
     return [
       {
-        question: 'How fast can we see results?',
-        answer: 'Most teams see a working automation in 2–3 weeks. If you start with an AI Audit, you\'ll get a roadmap and ROI estimate in 5 business days.'
+        question: 'What systems can you integrate with?',
+        answer: 'We integrate with tools like Zendesk, Salesforce, HubSpot, Slack, Notion, Google Drive, and custom internal systems through APIs.'
       },
       {
-        question: 'Do you use our data to train models?',
-        answer: 'No. Your data stays within your environment and the providers you approve. We design systems with data minimisation and clear retention controls.'
+        question: 'How is my data secured?',
+        answer: 'Your data stays in your environment whenever possible. We use encryption in transit and at rest, strict access controls, and auditable workflows designed around your security requirements.'
       },
       {
-        question: 'What tools do you integrate with?',
-        answer: 'Common integrations include Slack, Gmail, HubSpot, Zendesk, Notion, Google Drive, Airtable, Postgres, Stripe, and internal APIs. If you have a custom system, we build adapters.'
+        question: 'What are your pricing options?',
+        answer: 'We offer three engagement models: AI Audit, MVP Automation, and Scale & Retain. Each one is designed for a different stage of your automation journey.'
       },
       {
-        question: 'How do you prevent hallucinations?',
-        answer: 'We use RAG grounding, structured outputs, validation, and evaluation tests. For critical workflows, we add human approval steps.'
+        question: 'What support do you provide after launch?',
+        answer: 'Our Scale & Retain partnership includes ongoing support, model maintenance, monitoring, and expansion of your automations as your needs evolve.'
       },
       {
-        question: 'What\'s the pricing model?',
-        answer: 'We offer fixed-scope sprints for the Audit and MVP, then optional monthly support for scaling. Pricing depends on workflows, integrations, and compliance needs.'
+        question: 'How fast can we launch the first automation?',
+        answer: 'Most teams can launch their first custom automation in about 14 days after kickoff, depending on workflow complexity and integration requirements.'
       },
       {
-        question: 'Do you offer ongoing support?',
-        answer: 'Yes — monitoring, continuous improvements, prompt and model tuning, new automations, and cost optimisation are all included in our Scale & Retain retainer.'
+        question: 'How do you keep AI responses accurate?',
+        answer: 'We ground responses in your own knowledge base, add validation and guardrails, and monitor quality so the system stays useful and trustworthy.'
       },
       {
-        question: 'Can this work with compliance requirements?',
-        answer: 'Yes. We can design for least privilege, audit logs, retention controls, and provider choices — including enterprise setups — based on your specific requirements.'
+        question: 'Can you work with compliance requirements?',
+        answer: 'Yes. We design around requirements like GDPR, SOC 2, and PIPEDA with access controls, audit logs, and deployment choices aligned to your environment.'
       }
     ];
   }

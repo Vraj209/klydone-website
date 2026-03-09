@@ -5,10 +5,10 @@ const solutions = [
   {
     icon:    Zap,
     title:   'AI Workflow Automation',
-    outcome: 'Replace manual hand-offs with fully automated trigger → validate → act → log pipelines.',
+    outcome: 'Create no-code automations that trigger from your support, CRM, or internal systems and take action automatically.',
     features: [
-      'Multi-step orchestration with conditional branching',
-      'Error recovery, retry logic, and alert routing',
+      'Trigger workflows from the tools your team already uses',
+      'Automate validation, routing, updates, and follow-up actions',
     ],
     gradient: 'from-violet-500 to-purple-600',
     bg:       'bg-violet-50 border-violet-100',
@@ -17,10 +17,10 @@ const solutions = [
   {
     icon:    BookOpen,
     title:   'RAG Knowledge Assist',
-    outcome: 'Ground AI answers in your internal docs so responses are accurate, cited, and auditable.',
+    outcome: 'Chat with your own knowledge base using retrieval-augmented models grounded in your policies, documentation, and FAQs.',
     features: [
-      'Retrieval from Notion, Drive, Confluence, or custom DBs',
-      'Source citation + confidence scoring built in',
+      'Answers grounded in your internal documentation',
+      'Ideal for support, operations, compliance, and internal enablement',
     ],
     gradient: 'from-indigo-500 to-blue-600',
     bg:       'bg-indigo-50 border-indigo-100',
@@ -29,10 +29,10 @@ const solutions = [
   {
     icon:    Bot,
     title:   'AI Agents for Tasks',
-    outcome: 'Autonomous multi-step task execution with guardrails, approvals, and full observability.',
+    outcome: 'Deploy multi-step AI agents to triage tickets, qualify leads, or draft responses so your team can focus on strategic work.',
     features: [
-      'Tool-use agents with sandboxed permission scopes',
-      'Human-in-the-loop gates before irreversible actions',
+      'Automate repetitive work while preserving human oversight',
+      'Built with approvals, monitoring, and production guardrails',
     ],
     gradient: 'from-sky-500 to-cyan-600',
     bg:       'bg-sky-50 border-sky-100',
@@ -45,8 +45,8 @@ export default function Solution() {
     <section id="solution" className="bg-gray-50 py-20 lg:py-24" aria-labelledby="solution-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="AI systems designed for real operations."
-          subtitle="Three focused products that remove busywork, surface knowledge, and execute tasks — each shipped with monitoring and handoff docs."
+          title="AI systems grounded in your operations."
+          subtitle="Three focused solutions built around your data and workflows, each designed to remove busywork and deliver measurable outcomes."
           badge="What we build"
         />
 

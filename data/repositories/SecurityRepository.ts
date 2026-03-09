@@ -4,11 +4,11 @@ import { SecurityFeature } from '../types';
 export class SecurityRepository {
   static getSecurityFeatures(): string[] {
     return [
-      'Least privilege access — AI agents only touch what they need',
-      'Data boundaries + retention controls — your data never trains public models',
-      'Human-in-the-loop approvals for critical or irreversible actions',
-      'Audit logs + monitoring — full observability on every automation run',
-      'Vendor-neutral architecture — swap providers without rebuilding'
+      'Aligned to GDPR, SOC 2, and PIPEDA requirements where your workflows demand it',
+      'Data encrypted in transit and at rest across the systems we deploy',
+      'Private-cloud and controlled-environment deployment options for sensitive operations',
+      'Granular permissions and access controls for every workflow and operator',
+      'Audit logs and monitoring that give your team full visibility and control'
     ];
   }
 

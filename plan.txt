@@ -206,7 +206,7 @@ Contact details:
 Email: [hello@youagency.com
 ]
 
-Phone: [+1 (555) 123-4567]
+Phone: [+1 (873) 498-5370]
 
 Address: [Kitchener-Waterloo, Ontario, Canada] (or whatever your address is)
 Contact form fields: Name, Company, Email, Phone, Project Brief (optional)

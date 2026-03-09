@@ -27,7 +27,7 @@ export default function Security() {
           </span>
           <SectionHeader
             title="Built with guardrails."
-            subtitle="Security is a first-class constraint, not an afterthought. Every AI system we ship is scoped, observable, and designed to keep your data in your control."
+            subtitle="Our platform is designed around strong governance from day one, with encryption, access control, auditability, and deployment choices that fit your environment."
             centered={false}
           />
 
@@ -46,7 +46,7 @@ export default function Security() {
           </ul>
 
           <Button href="#contact" variant="primary">
-            Request our security checklist
+            Talk about security requirements
           </Button>
         </div>
 
@@ -69,9 +69,8 @@ export default function Security() {
 
           <div className="mt-5 rounded-2xl border border-gray-200 bg-white p-4 text-center">
             <p className="text-sm text-gray-500">
-              Vendor-neutral architecture — swap from{' '}
-              <span className="font-semibold text-gray-700">OpenAI → Azure → Anthropic</span>{' '}
-              without rebuilding.
+              We design for enterprise requirements, including provider choice, data boundaries,
+              and audit-ready workflows for regulated teams.
             </p>
           </div>
         </div>

@@ -155,8 +155,8 @@ export default function CaseStudies() {
   return (
     <Section id="case-studies" background="light">
       <SectionHeader
-        title="Results, not demos."
-        subtitle="Real automations shipped for real ops teams — with before, after, and the numbers that matter."
+        title="Customer Success Stories"
+        subtitle="A snapshot of the kinds of operational wins our clients achieve when automations are grounded in their real workflows."
         badge="Case studies"
       />
 
@@ -177,7 +177,7 @@ export default function CaseStudies() {
               </div>
               <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">
                 <ChartNoAxesCombined size={12} />
-                Productized workflow
+                Challenge {'->'} Approach {'->'} Results
               </span>
             </div>
 
@@ -252,7 +252,7 @@ export default function CaseStudies() {
 
       <div className="mt-10 text-center">
         <Button href="#contact" variant="ghost" size="md">
-          Discuss your automation opportunity
+          Talk about your automation goals
           <ArrowRight size={16} aria-hidden="true" />
         </Button>
       </div>

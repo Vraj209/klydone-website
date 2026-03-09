@@ -5,21 +5,21 @@ export class TestimonialsRepository {
   static getTestimonials(): Testimonial[] {
     return [
       {
-        quote: 'Working with Klydone transformed our backend infrastructure and cut our release cycles in half. Their team really understood our fintech requirements.',
-        author: 'Sarah Chen',
-        role: 'CTO',
-        company: 'FinanceFlow Inc.'
+        quote: 'Klydone reduced our support backlog by 80% within two weeks and gave our team a workflow we could actually trust.',
+        author: 'Jane Smith',
+        role: 'Director of Support',
+        company: 'Acme Inc.'
       },
       {
-        quote: 'From UX design to final launch, their process was smooth and extremely professional. Highly recommend for any SaaS project.',
+        quote: 'They built an automation around our real processes, not a generic chatbot. The rollout was fast, measurable, and secure.',
         author: 'Michael Rodriguez',
-        role: 'Product Director',
+        role: 'Head of Operations',
         company: 'CloudSync'
       },
       {
-        quote: 'Reliable, responsive and technically excellent — they built our open-banking integration ahead of schedule and under budget.',
+        quote: 'The first automation went live in under three weeks and saved our team hours every single week right away.',
         author: 'David Thompson',
-        role: 'CEO',
+        role: 'VP of Customer Experience',
         company: 'PayStream Solutions'
       }
     ];

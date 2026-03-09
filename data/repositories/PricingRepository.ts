@@ -6,45 +6,44 @@ export class PricingRepository {
     return [
       {
         name: 'AI Audit',
-        subtitle: '1 week · Fixed scope',
-        description: 'Understand where AI can move the needle before you spend a dollar on build.',
+        subtitle: '1-2 weeks · Strategy engagement',
+        description: 'A focused engagement where we analyze your processes, identify automation opportunities, and deliver a practical roadmap.',
         features: [
-          'Workflow map + automation opportunity analysis',
-          'ROI estimate + risk assessment',
-          'Architecture + 90-day roadmap',
-          'Written findings delivered in 5 business days',
-          'Strategy call walkthrough included'
+          'Current-state workflow mapping',
+          'Opportunity and risk assessment',
+          'Recommended automation roadmap',
+          'Priority use cases with expected ROI',
+          'Stakeholder walkthrough and next steps'
         ],
-        cta: 'Get AI Audit',
+        cta: 'Get Your AI Audit',
         popular: false
       },
       {
         name: 'MVP Automation',
-        subtitle: '2–3 weeks · Fixed scope',
-        description: 'Ship 1–2 production-ready automations with full observability and team handoff.',
+        subtitle: '4 weeks · Delivery sprint',
+        description: 'A build sprint where we design and launch a working automation integrated with your systems.',
         features: [
-          '1–2 end-to-end workflows shipped',
-          'Logging, monitoring & error alerting',
-          'Evaluation tests + quality gates',
-          'Team handoff + runbook documentation',
-          'Two weeks of post-launch support'
+          'Custom automation design and implementation',
+          'Integration with your support, CRM, or internal tools',
+          'Monitoring, logging, and quality checks',
+          'Team handoff and documentation',
+          'Post-launch support and iteration'
         ],
-        cta: 'Book Build Sprint',
+        cta: 'Launch an MVP Automation',
         popular: true
       },
       {
         name: 'Scale & Retain',
-        subtitle: 'Monthly · Ongoing',
-        description: 'Continuous improvements, new automations, model optimisation, and governance.',
+        subtitle: 'Ongoing partnership',
+        description: 'An ongoing partnership where we expand your automations, maintain models, and provide continuous support.',
         features: [
-          'Everything in MVP Automation',
-          'Unlimited new workflow requests',
-          'Prompt and model tuning',
-          'Cost optimisation + provider governance',
-          'Monthly strategy review',
-          'Dedicated Slack channel'
+          'Expansion of existing automations',
+          'Model maintenance and optimization',
+          'Continuous monitoring and support',
+          'Monthly strategy reviews',
+          'New workflow opportunities prioritized with your team'
         ],
-        cta: 'Talk Retainer',
+        cta: 'Talk About Ongoing Support',
         popular: false
       }
     ];

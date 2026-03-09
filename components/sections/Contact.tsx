@@ -243,8 +243,8 @@ export default function Contact() {
       `}</style>
 
       <SectionHeader
-        title="Contact us"
-        subtitle="Have a question? Want to talk about your next project? Fill out the form and we'll get back to you within 24 hours."
+        title="Let's Talk"
+        subtitle="Tell us about your workflows, goals, and systems. We will respond within one business day with next steps."
         badge="Get in touch"
       />
 
@@ -257,8 +257,8 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-0.5">Email</h3>
-                <a href="mailto:klydoneinc@gmail.com" className="text-sm text-gray-600 hover:text-violet-600 transition-colors">
-                  klydoneinc@gmail.com
+                <a href="mailto:hello@klydone.com" className="text-sm text-gray-600 hover:text-violet-600 transition-colors">
+                  hello@klydone.com
                 </a>
               </div>
             </div>
@@ -294,9 +294,9 @@ export default function Contact() {
               style={{ animation: 'klyd-contact-panel 8s ease-in-out infinite' }}
             >
               <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/70">Discovery sprint</p>
-              <h3 className="text-2xl font-bold mb-3">Ready to remove busywork with AI?</h3>
+              <h3 className="text-2xl font-bold mb-3">Schedule a strategy call</h3>
               <p className="text-white/80 mb-6 text-sm leading-relaxed">
-                No commitment. Let&apos;s talk through your workflows, what success looks like, and how we can help in 14–21 days.
+                We&apos;ll help you identify the highest-ROI workflow for your team and outline what an AI ops audit could uncover.
               </p>
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="rounded-xl bg-white/15 p-3 backdrop-blur-sm">
@@ -310,7 +310,7 @@ export default function Contact() {
               </div>
               <Link href={SCHEDULE_LINK} target="_blank">
                 <Button variant="secondary">
-                  Book Your Free 30-Minute Discovery Call
+                  Schedule a Strategy Call
                   <ArrowRight size={18} aria-hidden="true" />
                 </Button>
               </Link>
@@ -342,7 +342,7 @@ export default function Contact() {
         >
           <div className="rounded-2xl border border-violet-100/70 bg-white/80 px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-600">Project intake</p>
-            <p className="mt-1 text-sm text-gray-600">Share a few details and we will reply with next steps within 24 hours.</p>
+            <p className="mt-1 text-sm text-gray-600">Share a few details and we will reply within one business day.</p>
           </div>
 
           {/* Success/Error Message */}
@@ -506,7 +506,7 @@ export default function Contact() {
             )}
           </Button>
           <p className="text-center text-xs text-gray-500">
-            By submitting, you agree to be contacted by our team about your project.
+            We will never share your information. By submitting, you agree to be contacted by our team about your project.
           </p>
         </form>
       </div>

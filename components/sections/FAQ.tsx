@@ -14,7 +14,7 @@ export default function FAQ() {
     <Section id="faq" background="light" className="faq-envelope-section">
       <SectionHeader
         title="Frequently Asked Questions"
-        subtitle="The clarity you are looking for"
+        subtitle="Answers about integrations, security, pricing, and the support you can expect after launch."
         badge="FAQ"
       />
 

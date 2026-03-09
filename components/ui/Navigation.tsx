@@ -25,6 +25,7 @@ export default function Navigation() {
     { name: "Packages",      href: "#pricing"      },
     { name: "Security",      href: "#security"     },
     { name: "FAQ",           href: "#faq"          },
+    { name : "Contact",      href : "#contact"    }
   ];
 
   return (

@@ -10,8 +10,8 @@ export default function Pricing() {
   return (
     <Section id="pricing" background="white">
       <SectionHeader
-        title="Clear packages. Fast delivery."
-        subtitle="Fixed-scope sprints for the first two tiers — you know exactly what you get and when. Monthly retainer when you want to keep compounding."
+        title="Engagement packages built around your stage."
+        subtitle="Choose the right starting point: strategic assessment, first automation launch, or an ongoing partnership to scale what works."
         badge="Engagement models"
       />
 
@@ -71,8 +71,29 @@ export default function Pricing() {
         ))}
       </div>
 
+      <div className="mt-8 overflow-x-auto rounded-3xl border border-gray-100 bg-gray-50">
+        <div className="grid min-w-[760px] grid-cols-4 border-b border-gray-200 bg-white/80 text-sm font-semibold text-gray-700">
+          <div className="px-4 py-3">Package</div>
+          <div className="px-4 py-3">Duration</div>
+          <div className="px-4 py-3">Primary Deliverable</div>
+          <div className="px-4 py-3">Support</div>
+        </div>
+        {[
+          ['AI Audit', '1-2 weeks', 'Roadmap and automation opportunities', 'Stakeholder walkthrough'],
+          ['MVP Automation', '4 weeks', 'Working automation integrated with your systems', 'Post-launch iteration'],
+          ['Scale & Retain', 'Ongoing', 'Expansion and optimization of automations', 'Continuous support'],
+        ].map(([pkg, duration, deliverable, support]) => (
+          <div key={pkg} className="grid min-w-[760px] grid-cols-4 border-t border-gray-200 text-sm text-gray-600">
+            <div className="px-4 py-3 font-medium text-gray-800">{pkg}</div>
+            <div className="px-4 py-3">{duration}</div>
+            <div className="px-4 py-3">{deliverable}</div>
+            <div className="px-4 py-3">{support}</div>
+          </div>
+        ))}
+      </div>
+
       <p className="mt-8 text-center text-sm text-gray-400">
-        Custom scope available for enterprise teams — pricing after a 30-min discovery call.
+        Custom scope is available for enterprise teams with more complex systems, compliance needs, or multi-workflow rollouts.
       </p>
     </Section>
   );

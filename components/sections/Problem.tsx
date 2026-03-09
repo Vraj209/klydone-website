@@ -1,10 +1,10 @@
 import { AlertTriangle, Clock, Database, BarChart2 } from 'lucide-react';
 
 const painPoints = [
-  { icon: Clock,         label: 'Repetitive copy/paste workflows eating hours every day',         color: 'bg-amber-50 border-amber-200 text-amber-600' },
-  { icon: AlertTriangle, label: 'Slow response times across support and sales queues',             color: 'bg-red-50 border-red-200 text-red-500'       },
-  { icon: Database,      label: 'Knowledge scattered across docs, chats, and spreadsheets',       color: 'bg-sky-50 border-sky-200 text-sky-600'        },
-  { icon: BarChart2,     label: "No visibility into what's working or where time is being lost",  color: 'bg-violet-50 border-violet-200 text-violet-600' },
+  { icon: Clock, label: 'Manual copy-and-paste', color: 'bg-amber-50 border-amber-200 text-amber-600' },
+  { icon: AlertTriangle, label: 'Slow response times', color: 'bg-red-50 border-red-200 text-red-500' },
+  { icon: Database, label: 'Scattered knowledge', color: 'bg-sky-50 border-sky-200 text-sky-600' },
+  { icon: BarChart2, label: 'No visibility', color: 'bg-violet-50 border-violet-200 text-violet-600' },
 ] as const;
 
 export default function Problem() {
@@ -57,9 +57,10 @@ export default function Problem() {
               <span className="font-display  gradient-text">hidden cost.</span>
             </h2>
             <p className="mb-8 text-base leading-relaxed text-gray-500">
-              Every week your team spends on busywork is a week not spent on growth. The longer
-              these workflows run manually, the harder they are to change — and the more they cost
-              in talent, time, and missed revenue.
+              If your team is drowning in copy-and-paste workflows, support tickets are piling up,
+              and knowledge is scattered across tools, manual work is costing you more than you
+              think. We build AI-powered solutions that centralize your knowledge, automate
+              repetitive processes, and provide complete visibility into your operations.
             </p>
 
             <ul className="space-y-3" role="list">
@@ -80,12 +81,12 @@ export default function Problem() {
               The bridge
             </p>
             <blockquote className="font-display text-2xl font-semibold leading-snug text-gray-900">
-              AI works when it&apos;s grounded, measurable, and maintained — not when it&apos;s
-              just a chatbot bolted on.
+              We build AI systems that are grounded in your data, secure, measurable, and tailored
+              to your operations.
             </blockquote>
             <p className="mt-5 text-sm leading-relaxed text-gray-500">
-              We build AI systems tied to your actual processes, instrumented for quality, and
-              handed over with documentation your team can own. No black boxes.
+              That means automation designed around your real workflows, integrated into the tools
+              your team already uses, and delivered with the guardrails needed for production.
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
