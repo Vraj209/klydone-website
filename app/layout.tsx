@@ -4,9 +4,9 @@ import "./globals.css";
 import AppProviders from "@/components/providers/AppProviders";
 
 export const metadata: Metadata = {
-  title: "Klydone — AI Automation for Operations | Save 10–30 hrs/week",
+  title: "Klydone — AI Automation for Customer Support & Operations",
   description:
-    "Klydone designs and ships AI automations that remove manual work across support, sales ops, and internal processes. Secure, measurable, and production-ready in 14–21 days.",
+    "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week with AI systems grounded in your data.",
   keywords: [
     "AI automation agency in Canada",
     "AI automation agency in Kitchener-Waterloo",
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://klydone.com",
-    title: "Klydone — AI Automation for Operations",
-    description: "Ship AI automations that save your team 10–30 hours/week. Secure. Measurable. Production-ready.",
+    title: "Klydone — AI Automation for Customer Support & Operations",
+    description: "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week.",
     siteName: "Klydone",
     images: [
       {
@@ -61,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Klydone — AI Automation for Operations",
-    description: "Ship AI automations that save your team 10–30 hours/week. Secure. Measurable. Production-ready.",
+    title: "Klydone — AI Automation for Customer Support & Operations",
+    description: "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week.",
     images: ["/og-image.jpg"],
   },
   robots: {
