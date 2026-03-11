@@ -87,6 +87,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/cqq6hmq.css" />
+        <link rel="alternate" type="application/json" href="/.well-known/ai-capabilities.json" />
       </head>
       <body className="font-sans antialiased">
         <Script

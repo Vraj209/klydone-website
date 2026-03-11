@@ -49,6 +49,18 @@ export const newsletterSchema = z.object({
     .optional(),
 });
 
+// AI project estimate request schema
+export const aiProjectEstimateSchema = z.object({
+  company_type: z
+    .string()
+    .min(2, 'Company type must be at least 2 characters')
+    .max(60, 'Company type must not exceed 60 characters'),
+  goal: z
+    .string()
+    .min(5, 'Goal must be at least 5 characters')
+    .max(200, 'Goal must not exceed 200 characters'),
+});
+
 // API response schemas
 export const apiResponseSchema = z.object({
   success: z.boolean(),
@@ -90,6 +102,7 @@ export const pricingPlanSchema = z.object({
 // Type exports
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 export type NewsletterData = z.infer<typeof newsletterSchema>;
+export type AiProjectEstimateInput = z.infer<typeof aiProjectEstimateSchema>;
 export type ApiResponse = z.infer<typeof apiResponseSchema>;
 export type ErrorResponse = z.infer<typeof errorResponseSchema>;
 export type Feature = z.infer<typeof featureSchema>;

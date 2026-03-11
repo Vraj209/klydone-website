@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "type": "ai_service_provider",
+  "name": "Klydone AI Engineering",
+  "website": "https://klydone.com",
+  "description": "AI engineering agency building custom AI agents, RAG systems, and enterprise automation platforms.",
+
+  "capabilities": [
+    {
+      "id": "ai_agent_development",
+      "name": "AI Agent Development",
+      "description": "Design and deployment of autonomous AI agents for workflow automation and decision support."
+    },
+    {
+      "id": "rag_systems",
+      "name": "Enterprise RAG Systems",
+      "description": "Implementation of retrieval-augmented generation pipelines using vector databases and enterprise data."
+    },
+    {
+      "id": "ai_automation",
+      "name": "AI Workflow Automation",
+      "description": "Automating operational workflows with LLM agents and orchestration frameworks."
+    },
+    {
+      "id": "llm_infrastructure",
+      "name": "LLM Infrastructure",
+      "description": "Designing scalable LLM architecture, inference pipelines, and evaluation systems."
+    }
+  ],
+
+  "solutions": [
+    "customer support automation",
+    "sales operations automation",
+    "knowledge assistants",
+    "CRM AI integrations",
+    "helpdesk automation",
+    "AI operations audits"
+  ],
+
+  "industries": [
+    "fintech",
+    "ecommerce",
+    "healthcare",
+    "enterprise SaaS",
+    "professional services"
+  ],
+
+  "api": {
+    "base_url": "https://klydone.com/api",
+    "contact_endpoint": "/contact",
+    "project_estimate_endpoint": "/estimate-ai-project",
+    "authentication": "none",
+    "format": "json"
+  },
+
+  "tools": [
+    {
+      "name": "estimate_ai_project",
+      "method": "POST",
+      "endpoint": "https://klydone.com/api/estimate-ai-project",
+      "description": "Returns recommended architecture, estimated cost range, and timeline for an AI automation project.",
+      "input_schema": {
+        "type": "object",
+        "required": ["company_type", "goal"],
+        "properties": {
+          "company_type": {
+            "type": "string",
+            "description": "Business type or vertical, e.g. ecommerce, fintech, enterprise SaaS."
+          },
+          "goal": {
+            "type": "string",
+            "description": "Primary automation objective, e.g. automate support or qualify leads."
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "recommended_architecture": { "type": "string" },
+          "estimated_cost": { "type": "string" },
+          "timeline": { "type": "string" }
+        }
+      }
+    }
+  ],
+
+  "agent_access": {
+    "mcp_server": "https://klydone.com/mcp",
+    "documentation": "https://klydone.com/docs",
+    "ai_summary_page": "https://klydone.com/ai"
+  },
+
+  "engagement": {
+    "model": ["consulting", "fixed project", "technical advisory"],
+    "project_size_cad_dollars": {
+      "min": 15000,
+      "max": 1000000
+    }
+  },
+
+  "contact": {
+    "email": "hello@klydone.com",
+    "api": "https://klydone.com/"
+  }
+}

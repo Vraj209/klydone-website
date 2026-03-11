@@ -1,0 +1,15 @@
+Klydone AI Engineering
+
+Expertise:
+- AI agents
+- RAG systems
+- AI automation
+- enterprise LLM infrastructure
+
+Contact:
+https://klydone.com/api/contact
+
+Tool:
+POST https://klydone.com/api/estimate-ai-project
+Input JSON: {"company_type":"ecommerce","goal":"automate support"}
+Output JSON: {"recommended_architecture":"...","estimated_cost":"...","timeline":"..."}

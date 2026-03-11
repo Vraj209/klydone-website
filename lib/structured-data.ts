@@ -1,11 +1,21 @@
 export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Klydone",
+  name: "Klydone AI Engineering",
   url: "https://klydone.com",
-  logo: "https://klydone.com/logo.png",
+  logo: "https://klydone.com/favicon.svg",
   description:
-    "Web and AI development agency specializing in Go backends, React/Next.js frontends, and cloud-native architectures.",
+    "AI engineering agency building AI agents, enterprise RAG systems, and workflow automation platforms.",
+  email: "hello@klydone.com",
+  areaServed: "North America",
+  knowsAbout: [
+    "AI agent development",
+    "enterprise RAG systems",
+    "AI workflow automation",
+    "LLM infrastructure",
+    "customer support automation",
+    "sales operations automation",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Toronto",
@@ -14,9 +24,9 @@ export const organizationStructuredData = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+1-555-123-4567",
-    contactType: "Customer Service",
-    email: "klydoneinc@gmail.com",
+    contactType: "Sales",
+    email: "hello@klydone.com",
+    url: "https://klydone.com/api/contact",
     availableLanguage: "English",
   },
   sameAs: [
@@ -56,67 +66,84 @@ export const localBusinessStructuredData = {
 export const servicesStructuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Web Development and AI Solutions",
+  "@id": "https://klydone.com/",
+  name: "AI Automation Services",
+  serviceType: "AI automation consulting and implementation",
+  description:
+    "Klydone designs and ships AI automations for customer support and operations teams, including workflow automation, enterprise RAG systems, and task-oriented AI agents.",
   provider: {
     "@type": "Organization",
-    name: "Klydone",
+    name: "Klydone AI Engineering",
     url: "https://klydone.com",
   },
   areaServed: {
     "@type": "Place",
     name: "North America",
   },
+  audience: {
+    "@type": "Audience",
+    audienceType: "Customer support and operations teams",
+  },
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: "https://klydone.com/#contact",
+  },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Development Services",
+    name: "AI Automation Solutions",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Backend Development",
-          description: "Go and Node.js backend development services",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Frontend Development",
-          description: "React and Next.js frontend development services",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Cloud Architecture",
-          description: "Azure and AWS cloud infrastructure services",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "AI Solutions",
+          name: "AI Workflow Automation",
           description:
-            "Custom AI models, chatbots, predictive analytics, process automation, and generative AI solutions",
+            "Automation workflows connected to helpdesk, CRM, and internal systems with validation, routing, and follow-up actions.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "AI Chatbots & Assistants",
-          description: "Intelligent conversational AI with NLP integration",
+          name: "RAG Knowledge Assist",
+          description:
+            "Retrieval-augmented assistants grounded in your documentation, policies, and FAQs for support and operations.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Predictive Analytics",
-          description: "Advanced data analysis and forecasting using AI",
+          name: "AI Agents for Tasks",
+          description:
+            "Multi-step AI agents for ticket triage, lead qualification, and response drafting with approvals and monitoring.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI Ops Audit",
+          description:
+            "1-2 week assessment to identify highest-ROI automation opportunities and delivery roadmap.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "MVP Automation Launch",
+          description:
+            "4-week engagement to ship first production automation integrated with your existing systems.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Scale & Retain",
+          description:
+            "Ongoing optimization and expansion of successful automations across teams and workflows.",
         },
       },
     ],
