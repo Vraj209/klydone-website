@@ -6,7 +6,7 @@ export const organizationStructuredData = {
   logo: "https://klydone.com/favicon.svg",
   description:
     "AI engineering agency building AI agents, enterprise RAG systems, and workflow automation platforms.",
-  email: "hello@klydone.com",
+  email: "sales@klydone.com",
   areaServed: "North America",
   knowsAbout: [
     "AI agent development",
@@ -25,7 +25,7 @@ export const organizationStructuredData = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Sales",
-    email: "hello@klydone.com",
+    email: "sales@klydone.com",
     url: "https://klydone.com/api/contact",
     availableLanguage: "English",
   },

@@ -257,8 +257,8 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-0.5">Email</h3>
-                <a href="mailto:hello@klydone.com" className="text-sm text-gray-600 hover:text-violet-600 transition-colors">
-                  hello@klydone.com
+                <a href="mailto:sales@klydone.com" className="text-sm text-gray-600 hover:text-violet-600 transition-colors">
+                sales@klydone.com
                 </a>
               </div>
             </div>

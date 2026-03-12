@@ -203,7 +203,7 @@ Heading:
 “Get In Touch”
 Contact details:
 
-Email: [hello@youagency.com
+Email: [sales@klydone.com
 ]
 
 Phone: [+1 (873) 498-5370]

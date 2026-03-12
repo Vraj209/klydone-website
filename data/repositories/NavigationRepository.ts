@@ -45,7 +45,7 @@ export class NavigationRepository {
 
   static getSocialLinks(): SocialLink[] {
     return [
-      { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+      { name: 'LinkedIn', href: '', icon: 'linkedin' },
       { name: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
       { name: 'GitHub', href: 'https://github.com', icon: 'github' }
     ];

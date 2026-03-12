@@ -26,8 +26,8 @@ export default function Footer() {
               processes — secure, measurable, and production-ready.
             </p>
             <div className="mt-5 space-y-1">
-              <a href="mailto:hello@klydone.com" className="block text-sm text-gray-500 hover:text-violet-600 transition-colors">
-                hello@klydone.com
+              <a href="mailto:sales@klydone.com" className="block text-sm text-gray-500 hover:text-violet-600 transition-colors">
+                sales@klydone.com
               </a>
               <a href="tel:+15551234567" className="block text-sm text-gray-500 hover:text-violet-600 transition-colors">
                 +1 (873) 498-5370
