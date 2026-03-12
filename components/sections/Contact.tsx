@@ -450,7 +450,7 @@ export default function Contact() {
 
             <div>
               <label htmlFor="budget" className={labelClasses}>
-                Budget Range
+                Budget Range (CAD)
               </label>
               <ThemedDropdown
                 id="budget"
