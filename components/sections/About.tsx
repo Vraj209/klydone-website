@@ -68,7 +68,7 @@ export default function About() {
             
             <div className="pt-4 border-t border-gray-200">
               <p className="text-sm text-white">
-                Located in Toronto, Canada and fully remote-capable, serving clients across North America and beyond.
+                Located in Cambridge, Canada and fully remote-capable, serving clients across North America and beyond.
               </p>
             </div>
           </div>

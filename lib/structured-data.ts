@@ -18,7 +18,7 @@ export const organizationStructuredData = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Toronto",
+    addressLocality: "Cambridge",
     addressRegion: "Ontario",
     addressCountry: "Canada",
   },

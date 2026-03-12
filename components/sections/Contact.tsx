@@ -281,7 +281,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-0.5">Location</h3>
-                <p className="text-sm text-gray-600">Toronto, Ontario, Canada</p>
+                <p className="text-sm text-gray-600">Cambridge, Ontario, Canada</p>
               </div>
             </div>
           </div>
