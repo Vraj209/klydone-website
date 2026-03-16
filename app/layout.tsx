@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import AppProviders from "@/components/providers/AppProviders";
 
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "Klydone",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/klydone.png",
         width: 1200,
         height: 630,
         alt: "Klydone — AI Automation Agency",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Klydone — AI Automation for Customer Support & Operations",
     description: "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week.",
-    images: ["/og-image.jpg"],
+    images: ["public/klydone.png"],
   },
   robots: {
     index: true,
@@ -105,6 +106,7 @@ export default function RootLayout({
         <AppProviders>
           {children}
         </AppProviders>
+        <Analytics />
       </body>
     </html>
   );
