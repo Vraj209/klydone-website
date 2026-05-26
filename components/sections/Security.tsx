@@ -18,18 +18,16 @@ export default function Security() {
 
   return (
     <Section id="security" background="white">
+      <SectionHeader
+        title="Built with guardrails."
+        subtitle=""
+        badge="Security & Governance"
+        centered={true}
+      />
       <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
 
         {/* Left */}
         <div>
-          <span className="badge-shine mb-4 inline-block rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-violet-700">
-            Security & Governance
-          </span>
-          <SectionHeader
-            title="Built with guardrails."
-            subtitle="Our platform is designed around strong governance from day one, with encryption, access control, auditability, and deployment choices that fit your environment."
-            centered={false}
-          />
 
           <ul className="mb-8 space-y-3" role="list">
             {securityFeatures.map((feature, index) => {
@@ -67,12 +65,12 @@ export default function Security() {
             ))}
           </div>
 
-          <div className="mt-5 rounded-2xl border border-gray-200 bg-white p-4 text-center">
+          {/* <div className="mt-5 rounded-2xl border border-gray-200 bg-white p-4 text-center">
             <p className="text-sm text-gray-500">
               We design for enterprise requirements, including provider choice, data boundaries,
               and audit-ready workflows for regulated teams.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </Section>

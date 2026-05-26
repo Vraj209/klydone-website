@@ -1,6 +1,6 @@
 import { FAQ } from '../types';
 
-// FAQ Repository — objection-handling questions optimised for AI automation sales
+// FAQ Repository — objection-handling questions optimised for automation and technical solution sales
 export class FAQRepository {
   static getFAQs(): FAQ[] {
     return [
@@ -14,19 +14,19 @@ export class FAQRepository {
       },
       {
         question: 'What are your pricing options?',
-        answer: 'We offer three engagement models: AI Audit, MVP Automation, and Scale & Retain. Each one is designed for a different stage of your automation journey.'
+        answer: 'We offer three engagement models: Automation Audit, First Workflow Launch, and Scale & Optimize. Each one is designed for a different stage of your automation journey.'
       },
       {
         question: 'What support do you provide after launch?',
-        answer: 'Our Scale & Retain partnership includes ongoing support, model maintenance, monitoring, and expansion of your automations as your needs evolve.'
+        answer: 'Our Scale & Optimize partnership includes ongoing support, system maintenance, monitoring, and expansion of your workflows as your needs evolve.'
       },
       {
         question: 'How fast can we launch the first automation?',
         answer: 'Most teams can launch their first custom automation in about 14 days after kickoff, depending on workflow complexity and integration requirements.'
       },
       {
-        question: 'How do you keep AI responses accurate?',
-        answer: 'We ground responses in your own knowledge base, add validation and guardrails, and monitor quality so the system stays useful and trustworthy.'
+        question: 'How do you keep automated workflows accurate?',
+        answer: 'We use approved data sources, validation rules, human approval points, and monitoring so each workflow stays useful and trustworthy.'
       },
       {
         question: 'Can you work with compliance requirements?',

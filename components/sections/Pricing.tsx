@@ -11,7 +11,7 @@ export default function Pricing() {
     <Section id="pricing" background="white">
       <SectionHeader
         title="Engagement packages built around your stage."
-        subtitle="Choose the right starting point: strategic assessment, first automation launch, or an ongoing partnership to scale what works."
+        // subtitle="Choose the right starting point: strategic assessment, first workflow launch, or an ongoing partnership to scale what works."
         badge="Engagement models"
       />
 
@@ -79,9 +79,9 @@ export default function Pricing() {
           <div className="px-4 py-3">Support</div>
         </div>
         {[
-          ['AI Audit', '1-2 weeks', 'Roadmap and automation opportunities', 'Stakeholder walkthrough'],
-          ['MVP Automation', '4 weeks', 'Working automation integrated with your systems', 'Post-launch iteration'],
-          ['Scale & Retain', 'Ongoing', 'Expansion and optimization of automations', 'Continuous support'],
+          ['Automation Audit', '1-2 weeks', 'Roadmap and technical solution opportunities', 'Stakeholder walkthrough'],
+          ['First Workflow Launch', '4 weeks', 'Working workflow integrated with your systems', 'Post-launch iteration'],
+          ['Scale & Optimize', 'Ongoing', 'Expansion and optimization of workflows', 'Continuous support'],
         ].map(([pkg, duration, deliverable, support]) => (
           <div key={pkg} className="grid min-w-[760px] grid-cols-4 border-t border-gray-200 text-sm text-gray-600">
             <div className="px-4 py-3 font-medium text-gray-800">{pkg}</div>
@@ -93,7 +93,7 @@ export default function Pricing() {
       </div>
 
       <p className="mt-8 text-center text-sm text-gray-400">
-        Custom scope is available for enterprise teams with more complex systems, compliance needs, or multi-workflow rollouts.
+        Custom scope is available for teams with more complex systems, compliance needs, or multi-workflow rollouts.
       </p>
     </Section>
   );

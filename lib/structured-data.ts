@@ -1,20 +1,24 @@
 export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Klydone AI Engineering",
+  name: "Klydone",
   url: "https://klydone.com",
   logo: "https://klydone.com/favicon.svg",
   description:
-    "AI engineering agency building AI agents, enterprise RAG systems, and workflow automation platforms.",
+    "Klydone helps growing businesses reduce manual work, connect tools, automate workflows, and ship secure technical solutions in weeks.",
   email: "sales@klydone.com",
   areaServed: "North America",
   knowsAbout: [
-    "AI agent development",
-    "enterprise RAG systems",
-    "AI workflow automation",
-    "LLM infrastructure",
+    "business process automation",
+    "custom technical solutions",
+    "workflow automation",
+    "systems integration",
+    "internal workflow tools",
+    "AI implementation",
+    "operations automation",
     "customer support automation",
     "sales operations automation",
+    "secure approval workflows",
   ],
   address: {
     "@type": "PostalAddress",
@@ -40,7 +44,7 @@ export const localBusinessStructuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Klydone",
-  image: "https://klydone.com/logo.png",
+  image: "https://klydone.com/og-image.png",
   "@id": "https://klydone.com",
   url: "https://klydone.com",
   telephone: "+1-555-123-4567",
@@ -67,13 +71,13 @@ export const servicesStructuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://klydone.com/",
-  name: "AI Automation Services",
-  serviceType: "AI automation consulting and implementation",
+  name: "Business Automation and Technical Solutions",
+  serviceType: "Custom automation, systems integration, internal workflow tools, and AI-enabled implementation",
   description:
-    "Klydone designs and ships AI automations for customer support and operations teams, including workflow automation, enterprise RAG systems, and task-oriented AI agents.",
+    "Klydone designs and ships secure technical solutions that help businesses reduce manual work, connect their tools, automate workflows, and improve day-to-day operations.",
   provider: {
     "@type": "Organization",
-    name: "Klydone AI Engineering",
+    name: "Klydone",
     url: "https://klydone.com",
   },
   areaServed: {
@@ -82,7 +86,7 @@ export const servicesStructuredData = {
   },
   audience: {
     "@type": "Audience",
-    audienceType: "Customer support and operations teams",
+    audienceType: "Growing businesses that need practical technical solutions",
   },
   availableChannel: {
     "@type": "ServiceChannel",
@@ -90,60 +94,60 @@ export const servicesStructuredData = {
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "AI Automation Solutions",
+    name: "Business Automation and Technical Solution Services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "AI Workflow Automation",
+          name: "Business Process Automation",
           description:
-            "Automation workflows connected to helpdesk, CRM, and internal systems with validation, routing, and follow-up actions.",
+            "Reduce repetitive work by automating routing, validation, follow-up, handoffs, and approvals across the tools your team already uses.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "RAG Knowledge Assist",
+          name: "Systems Integration and Data Sync",
           description:
-            "Retrieval-augmented assistants grounded in your documentation, policies, and FAQs for support and operations.",
+            "Connect CRM, helpdesk, finance, spreadsheets, databases, and internal tools so information moves without duplicate entry.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "AI Agents for Tasks",
+          name: "Internal Workflow Tools",
           description:
-            "Multi-step AI agents for ticket triage, lead qualification, and response drafting with approvals and monitoring.",
+            "Build practical tools that help teams review work, make decisions, track progress, and keep sensitive actions under human approval.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "AI Ops Audit",
+          name: "Technical Solution Audit",
           description:
-            "1-2 week assessment to identify highest-ROI automation opportunities and delivery roadmap.",
+            "1-2 week assessment to identify the highest-impact opportunities to save time, reduce operational drag, and improve service quality.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "MVP Automation Launch",
+          name: "First Workflow Launch",
           description:
-            "4-week engagement to ship first production automation integrated with your existing systems.",
+            "4-week engagement to ship the first production workflow or internal tool connected to your existing systems.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Scale & Retain",
+          name: "Automation Growth and Optimization",
           description:
-            "Ongoing optimization and expansion of successful automations across teams and workflows.",
+            "Ongoing measurement, optimization, and expansion of successful automations across teams and workflows.",
         },
       },
     ],

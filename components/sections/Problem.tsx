@@ -2,9 +2,9 @@ import { AlertTriangle, Clock, Database, BarChart2 } from 'lucide-react';
 
 const painPoints = [
   { icon: Clock, label: 'Manual copy-and-paste', color: 'bg-amber-50 border-amber-200 text-amber-600' },
-  { icon: AlertTriangle, label: 'Slow response times', color: 'bg-red-50 border-red-200 text-red-500' },
-  { icon: Database, label: 'Scattered knowledge', color: 'bg-sky-50 border-sky-200 text-sky-600' },
-  { icon: BarChart2, label: 'No visibility', color: 'bg-violet-50 border-violet-200 text-violet-600' },
+  { icon: AlertTriangle, label: 'Bottlenecks between tools', color: 'bg-red-50 border-red-200 text-red-500' },
+  { icon: Database, label: 'Scattered data and knowledge', color: 'bg-sky-50 border-sky-200 text-sky-600' },
+  { icon: BarChart2, label: 'No workflow visibility', color: 'bg-violet-50 border-violet-200 text-violet-600' },
 ] as const;
 
 export default function Problem() {
@@ -56,12 +56,12 @@ export default function Problem() {
               Manual work is your biggest{' '}
               <span className="font-display  gradient-text">hidden cost.</span>
             </h2>
-            <p className="mb-8 text-base leading-relaxed text-gray-500">
-              If your team is drowning in copy-and-paste workflows, support tickets are piling up,
-              and knowledge is scattered across tools, manual work is costing you more than you
-              think. We build AI-powered solutions that centralize your knowledge, automate
-              repetitive processes, and provide complete visibility into your operations.
-            </p>
+            {/* <p className="mb-8 text-base leading-relaxed text-gray-500">
+              If work is stuck in inboxes, spreadsheets, disconnected tools, and repeated manual
+              handoffs, the business is paying for it every week. We build practical technical
+              solutions that connect your systems, automate repetitive processes, and give teams
+              clearer visibility into the work that matters.
+            </p> */}
 
             <ul className="space-y-3" role="list">
               {painPoints.map(({ icon: Icon, label, color }) => (
@@ -81,18 +81,19 @@ export default function Problem() {
               The bridge
             </p>
             <blockquote className="font-display text-2xl font-semibold leading-snug text-gray-900">
-              We build AI systems that are grounded in your data, secure, measurable, and tailored
-              to your operations.
+              We build business systems that are grounded in your data, secure, measurable, and
+              tailored to how your team actually works.
             </blockquote>
-            <p className="mt-5 text-sm leading-relaxed text-gray-500">
-              That means automation designed around your real workflows, integrated into the tools
-              your team already uses, and delivered with the guardrails needed for production.
-            </p>
+            {/* <p className="mt-5 text-sm leading-relaxed text-gray-500">
+              That means automation and internal tools designed around your real workflows,
+              integrated into the systems your team already uses, and delivered with the guardrails
+              needed for production.
+            </p> */}
 
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className="rounded-2xl border border-white bg-white p-5 text-center shadow-sm">
                 <span className="font-display block text-3xl font-bold text-violet-600">14–21</span>
-                <span className="mt-1 block text-xs text-gray-500">days to first automation</span>
+                <span className="mt-1 block text-xs text-gray-500">days to first workflow</span>
               </div>
               <div className="rounded-2xl border border-white bg-white p-5 text-center shadow-sm">
                 <span className="font-display block text-3xl font-bold text-indigo-600">100%</span>

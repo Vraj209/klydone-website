@@ -40,7 +40,7 @@ export default function Process() {
 
       <SectionHeader
         title="A predictable delivery process."
-        subtitle="No black boxes. Every engagement follows the same four phases so you know exactly what's happening and when."
+        // subtitle="No black boxes. Every engagement follows the same four phases so you know exactly what's happening and when."
         badge="How we work"
       />
 

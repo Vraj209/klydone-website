@@ -23,7 +23,7 @@ export default function ProofStrip() {
   const loopTicker = [...ticker, ...ticker];
 
   return (
-    <section className="border-y border-gray-100 bg-white py-8" aria-label="Trust and platform signals">
+    <section className="bg-transparent py-8" aria-label="Trust and platform signals">
       <style>{`
         @keyframes klyd-proof-marquee {
           from { transform: translate3d(0, 0, 0); }
@@ -35,7 +35,7 @@ export default function ProofStrip() {
       `}</style>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 grid gap-5 rounded-3xl border border-violet-100 bg-gradient-to-r from-violet-50 via-indigo-50 to-sky-50 p-5 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+        {/* <div className="mb-6 grid gap-5 rounded-3xl border border-violet-100 bg-gradient-to-r from-violet-50 via-indigo-50 to-sky-50 p-5 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-600">
               Built for real operations
@@ -57,12 +57,12 @@ export default function ProofStrip() {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Company movement marquee */}
-        <div className="relative overflow-hidden rounded-xl border border-gray-100 bg-gray-50/70 py-3">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-gray-50 to-transparent" />
-          <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-gray-50 to-transparent" />
+        <div className="relative overflow-hidden rounded-3xl bg-white/55 py-3 shadow-[0_18px_60px_-48px_rgba(15,23,42,0.4)] backdrop-blur-sm">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white via-white/90 to-transparent" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white via-white/90 to-transparent" />
           <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400">
             Works with your existing stack
           </p>
@@ -74,7 +74,7 @@ export default function ProofStrip() {
               <span
                 key={`${company.name}-${idx}`}
                 aria-hidden={idx >= companyRow.length}
-                className="flex h-12 min-w-[92px] items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-2 shadow-sm"
+                className="flex h-12 min-w-[92px] items-center justify-center rounded-xl bg-white/90 px-4 py-2 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.5)] ring-1 ring-gray-900/5"
               >
                 <img
                   src={company.logo}

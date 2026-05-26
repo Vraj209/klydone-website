@@ -22,8 +22,8 @@ export default function Footer() {
               <span className="klydone-dot font-bold">.</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-gray-500">
-              AI automations that remove manual work across support, sales ops, and internal
-              processes — secure, measurable, and production-ready.
+              Business automation and technical solutions that remove manual work, connect tools,
+              and ship production-ready workflows for growing teams.
             </p>
             <div className="mt-5 space-y-1">
               <a href="mailto:sales@klydone.com" className="block text-sm text-gray-500 hover:text-violet-600 transition-colors">

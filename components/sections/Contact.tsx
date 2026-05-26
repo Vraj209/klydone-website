@@ -211,7 +211,7 @@ export default function Contact() {
   const projectTypeOptions: DropdownOption[] = [
     { value: 'web-app', label: 'Web Application' },
     { value: 'mobile-app', label: 'Mobile App' },
-    { value: 'ai-solution', label: 'AI Solution' },
+    { value: 'ai-solution', label: 'Automation / Technical Solution' },
     { value: 'consulting', label: 'Consulting' },
     { value: 'other', label: 'Other' },
   ];
@@ -244,7 +244,7 @@ export default function Contact() {
 
       <SectionHeader
         title="Let's Talk"
-        subtitle="Tell us about your workflows, goals, and systems. We will respond within one business day with next steps."
+        subtitle=""
         badge="Get in touch"
       />
 
@@ -296,7 +296,7 @@ export default function Contact() {
               <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/70">Discovery sprint</p>
               <h3 className="text-2xl font-bold mb-3">Schedule a strategy call</h3>
               <p className="text-white/80 mb-6 text-sm leading-relaxed">
-                We&apos;ll help you identify the highest-ROI workflow for your team and outline what an AI ops audit could uncover.
+                We&apos;ll help you identify the highest-ROI workflow for your team and outline what an automation audit could uncover.
               </p>
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="rounded-xl bg-white/15 p-3 backdrop-blur-sm">
@@ -340,10 +340,10 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="space-y-6 rounded-3xl border border-violet-100/70 bg-gradient-to-b from-white via-white to-violet-50/40 p-7 shadow-[0_28px_60px_-30px_rgba(79,70,229,0.45)] backdrop-blur md:p-8"
         >
-          <div className="rounded-2xl border border-violet-100/70 bg-white/80 px-4 py-3">
+          {/* <div className="rounded-2xl border border-violet-100/70 bg-white/80 px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-600">Project intake</p>
             <p className="mt-1 text-sm text-gray-600">Share a few details and we will reply within one business day.</p>
-          </div>
+          </div> */}
 
           {/* Success/Error Message */}
           {message && (
@@ -513,4 +513,3 @@ export default function Contact() {
     </Section>
   );
 }
-

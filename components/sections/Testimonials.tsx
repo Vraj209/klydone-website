@@ -59,9 +59,9 @@ export default function Testimonials() {
       <div className="mb-8">
         <SectionHeader
           title="What leaders say after launch."
-          subtitle="Selected feedback from teams that wanted measurable automation outcomes, not generic AI demos."
+          subtitle=""
           badge="Customer stories"
-          centered={false}
+          centered={true}
         />
       </div>
 

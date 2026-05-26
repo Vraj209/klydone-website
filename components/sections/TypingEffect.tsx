@@ -3,14 +3,14 @@
 import { useEffect, useReducer, useRef } from 'react';
 
 const PHRASES = [
-  'support ticket triage',
-  'lead follow-up sequences',
-  'compliance Q&A',
+  'manual workflow routing',
+  'customer follow-up',
+  'policy lookup',
   'invoice processing',
-  'internal report generation',
+  'internal reporting',
   'onboarding workflows',
   'data entry & enrichment',
-  'SLA breach alerts',
+  'deadline and SLA alerts',
 ] as const;
 
 const TYPING_MS   = 72;
@@ -24,8 +24,6 @@ type State = {
   deleting:    boolean;
   displayed:   string;
 };
-
-type Action = 'TICK';
 
 function reducer(state: State): State {
   const phrase = PHRASES[state.phraseIndex];
@@ -69,7 +67,6 @@ export default function TypingEffect() {
     }
   );
   const stateRef = useRef(state);
-  stateRef.current = state;
 
   useEffect(() => {
     let id: ReturnType<typeof setTimeout>;
@@ -89,7 +86,9 @@ export default function TypingEffect() {
         : TYPING_MS;
 
       id = setTimeout(() => {
-        dispatch(reducer(stateRef.current));
+        const nextState = reducer(stateRef.current);
+        stateRef.current = nextState;
+        dispatch(nextState);
         tick();
       }, delay);
     }

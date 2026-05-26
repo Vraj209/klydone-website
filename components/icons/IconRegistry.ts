@@ -46,7 +46,8 @@ import {
 import { 
   LinkedinIcon, 
   TwitterIcon, 
-  GithubIcon 
+  GithubIcon,
+  InstagramIcon
 } from './social';
 
 // Security icons
@@ -150,6 +151,7 @@ export const IconRegistry: Record<string, IconComponent> = {
   // Social Media
   'linkedin': LinkedinIcon,
   'twitter': TwitterIcon,
+  'instagram': InstagramIcon,
   'github': GithubIcon,
   
   // Security

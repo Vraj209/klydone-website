@@ -4,11 +4,11 @@ import SectionHeader from '../ui/SectionHeader';
 const solutions = [
   {
     icon:    Zap,
-    title:   'AI Workflow Automation',
-    outcome: 'Create no-code automations that trigger from your support, CRM, or internal systems and take action automatically.',
+    title:   'Workflow Automation',
+    outcome: '',
     features: [
-      'Trigger workflows from the tools your team already uses',
-      'Automate validation, routing, updates, and follow-up actions',
+      'Trigger work from the tools your team already uses',
+      'Automate validation, routing, updates, approvals, and follow-up actions',
     ],
     gradient: 'from-violet-500 to-purple-600',
     bg:       'bg-violet-50 border-violet-100',
@@ -16,11 +16,11 @@ const solutions = [
   },
   {
     icon:    BookOpen,
-    title:   'RAG Knowledge Assist',
-    outcome: 'Chat with your own knowledge base using retrieval-augmented models grounded in your policies, documentation, and FAQs.',
+    title:   'Systems Integration',
+    outcome: '',
     features: [
-      'Answers grounded in your internal documentation',
-      'Ideal for support, operations, compliance, and internal enablement',
+      'Sync customer, sales, finance, and operations data',
+      'Keep teams aligned with one reliable workflow across systems',
     ],
     gradient: 'from-indigo-500 to-blue-600',
     bg:       'bg-indigo-50 border-indigo-100',
@@ -28,10 +28,10 @@ const solutions = [
   },
   {
     icon:    Bot,
-    title:   'AI Agents for Tasks',
-    outcome: 'Deploy multi-step AI agents to triage tickets, qualify leads, or draft responses so your team can focus on strategic work.',
+    title:   'AI-Assisted Workflows',
+    outcome: '',
     features: [
-      'Automate repetitive work while preserving human oversight',
+      'Reduce manual review while preserving human oversight',
       'Built with approvals, monitoring, and production guardrails',
     ],
     gradient: 'from-sky-500 to-cyan-600',
@@ -45,8 +45,8 @@ export default function Solution() {
     <section id="solution" className="bg-gray-50 py-20 lg:py-24" aria-labelledby="solution-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="AI systems grounded in your operations."
-          subtitle="Three focused solutions built around your data and workflows, each designed to remove busywork and deliver measurable outcomes."
+          title="Technical solutions built around business outcomes."
+          // subtitle="We design practical systems around your workflows, tools, and goals so teams can move faster without adding operational risk."
           badge="What we build"
         />
 

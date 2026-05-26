@@ -45,9 +45,9 @@ export class NavigationRepository {
 
   static getSocialLinks(): SocialLink[] {
     return [
-      { name: 'LinkedIn', href: '', icon: 'linkedin' },
-      { name: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-      { name: 'GitHub', href: 'https://github.com', icon: 'github' }
+      { name: 'Twitter', href: 'https://x.com/klydone', icon: 'twitter' },
+      { name: 'Instagram', href: 'https://www.instagram.com/klydone/', icon: 'instagram' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/company/klydone/', icon: 'linkedin' }
     ];
   }
 }

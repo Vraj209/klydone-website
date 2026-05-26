@@ -51,11 +51,11 @@ export default function FinalCTA() {
             >
               Ready to remove busywork
               <br />
-              <span className="gradient-text">with AI?</span>
+              <span className="gradient-text">with automation?</span>
             </h2>
 
             <p className="relative z-10 mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-500">
-              We'll identify the highest-ROI workflow for your team and give you a clear,
+              We&apos;ll identify the highest-ROI workflow for your team and give you a clear,
               no-obligation plan — in 30 minutes.
             </p>
 

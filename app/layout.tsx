@@ -4,34 +4,36 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import AppProviders from "@/components/providers/AppProviders";
 
+const siteTitle = "Business Automation & Technical Solutions | Klydone";
+const siteDescription =
+  "Klydone helps growing businesses reduce manual work, connect their tools, automate workflows, and ship secure technical solutions in weeks.";
+
 export const metadata: Metadata = {
-  title: "Klydone — AI Automation for Customer Support & Operations",
-  description:
-    "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week with AI systems grounded in your data.",
+  title: siteTitle,
+  description: siteDescription,
   keywords: [
     "AI automation agency in Canada",
+    "AI agency",
     "AI automation agency in Kitchener-Waterloo",
-    "AI workflow automation in Canada",
-    "AI workflow automation in Kitchener-Waterloo",
-    "RAG knowledge assistant",
-    "RAG knowledge assistant in Canada",
-    "RAG knowledge assistant in Kitchener-Waterloo",
-    "AI agents for operations in Canada",
-    "AI agents for operations in Kitchener-Waterloo",
+    "business automation solutions",
+    "business automation solutions in Canada",
+    "custom technical solutions for business",
+    "technical solutions company in Canada",
+    "technical solutions company in Kitchener-Waterloo",
+    "custom software solutions in Canada",
+    "business process automation in Canada",
+    "workflow automation company in Canada",
+    "systems integration services",
+    "operations automation in Canada",
+    "operations automation in Kitchener-Waterloo",
+    "automate repetitive business tasks",
+    "reduce manual work",
+    "connect business tools",
+    "internal workflow tools",
+    "AI implementation partner",
     "AI support automation in Canada",
-    "AI support automation in Kitchener-Waterloo",
-    "LLM integration in Canada",
-    "LLM integration in Kitchener-Waterloo",
-    "OpenAI integration in Canada",
-    "OpenAI integration in Kitchener-Waterloo",
-    "AI ops automation",
-    "AI ops automation in Canada",
-    "AI ops automation in Kitchener-Waterloo",
-    "AI automation SaaS",
-    "AI automation fintech in Canada",
-    "AI automation fintech in Kitchener-Waterloo",
-    "production AI systems in Canada",
-    "production AI systems in Kitchener-Waterloo",
+    "secure automation workflows",
+    "human approval workflows",
   ],
   authors: [{ name: "Klydone" }],
   creator: "Klydone",
@@ -48,12 +50,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://klydone.com",
-    title: "Klydone — AI Automation for Customer Support & Operations",
-    description: "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week.",
+    title: siteTitle,
+    description: siteDescription,
     siteName: "Klydone",
     images: [
       {
-        url: "/klydone.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Klydone — AI Automation Agency",
@@ -62,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Klydone — AI Automation for Customer Support & Operations",
-    description: "Free your team from repetitive tasks, improve response times, and save 10-30 hours of manual work every week.",
-    images: ["public/klydone.png"],
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

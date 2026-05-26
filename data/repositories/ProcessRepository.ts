@@ -1,6 +1,6 @@
 import { ProcessStep } from '../types';
 
-// Process Repository — AI automation delivery process
+// Process Repository — automation and technical solution delivery process
 export class ProcessRepository {
   static getProcessSteps(): ProcessStep[] {
     return [
@@ -13,13 +13,13 @@ export class ProcessRepository {
       {
         number: '02',
         title: 'Design',
-        description: 'We architect a custom AI solution and prototype it with your data before moving into implementation.',
+        description: 'We architect a custom technical solution and prototype the workflow with your data before moving into implementation.',
         highlight: 'Prototype & Architecture'
       },
       {
         number: '03',
         title: 'Build',
-        description: 'We integrate with your systems, configure the right models, and build the automation with guardrails and observability.',
+        description: 'We integrate with your systems and build the workflow with guardrails, monitoring, and clear handoff points.',
         highlight: 'Integrate & Build'
       },
       {
