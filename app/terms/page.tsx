@@ -6,7 +6,7 @@ import Footer from "@/components/sections/Footer";
 export const metadata: Metadata = {
   title: "Terms and Conditions | Klydone",
   description:
-    "Review the terms that apply when you access Klydone's website, contact forms, content, and related online services.",
+    "Review the terms that apply when you access Klydone's websites, contact forms, content, and related online services.",
   alternates: {
     canonical: "/terms",
   },
@@ -50,9 +50,9 @@ export default function TermsPage() {
               Terms and Conditions
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-7 text-gray-600">
-              These Terms and Conditions govern your access to and use of klydone.com,
-              including website content, contact forms, newsletter forms, scheduling
-              links, and related online features.
+              These Terms and Conditions govern your access to and use of klydone.com
+              and marketai.klydone.com, including website content, contact forms,
+              newsletter forms, scheduling links, and related online features.
             </p>
             <p className="mt-4 text-sm text-gray-500">Last updated: {lastUpdated}</p>
           </div>
